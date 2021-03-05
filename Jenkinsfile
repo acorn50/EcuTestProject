@@ -14,7 +14,7 @@ pipeline {
 
       }
       steps {
-        checkETLicense 'ECU-TEST'
+        checkETLicense(toolName: 'ECU-TEST', timeout: '120')
       }
     }
 
@@ -26,7 +26,7 @@ pipeline {
 
       }
       steps {
-        startET 'ECU-TEST'
+        startET(toolName: 'ECU-TEST', keepInstance: true, timeout: '120')
       }
     }
 
