@@ -9,7 +9,7 @@ pipeline {
 
       }
       steps {
-        startET(toolName: 'ECU-TEST', keepInstance: true, timeout: '120')
+        bat(script: 'start "D:\\Program Files\\ECU-TEST 2020.1\\ECU-TEST.exe"', returnStatus: true, returnStdout: true)
       }
     }
 
