@@ -6,18 +6,6 @@ pipeline {
 
   }
   stages {
-    stage('init') {
-      agent {
-        node {
-          label 'ECU-TEST'
-        }
-
-      }
-      steps {
-        checkETLicense(toolName: 'ECU-TEST', timeout: '120')
-      }
-    }
-
     stage('run') {
       agent {
         node {
