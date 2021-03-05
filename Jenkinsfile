@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'ECU-TEST'
-    }
-
-  }
+  agent none
   stages {
     stage('run') {
       agent {
