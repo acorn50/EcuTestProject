@@ -1,6 +1,9 @@
 pipeline {
   agent {
-    label 'ECU-TEST'
+    node {
+      label 'ECU-TEST'
+    }
+
   }
   stages {
     stage('init') {
