@@ -9,7 +9,7 @@ pipeline {
 
       }
       steps {
-        bat(script: 'start "D:\\Program Files\\ECU-TEST 2020.1\\ECU-TEST.exe"', returnStatus: true, returnStdout: true)
+        bat 'start "D:\\Program Files\\ECU-TEST 2020.1\\ECU-TEST.exe"'
       }
     }
 
