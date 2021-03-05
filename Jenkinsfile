@@ -1,5 +1,5 @@
 pipeline {
-  agent {label 'EcuTest'}
+  agent {label 'ECU-TEST'}
   stages {
     stage('init') {
       steps {
