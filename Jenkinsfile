@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('init') {
       steps {
-        
+        startET 'EcuTest2020.1'
       }
     }
   }
