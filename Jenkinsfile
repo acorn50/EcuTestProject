@@ -10,6 +10,7 @@ pipeline {
       }
       steps {
         bat 'start "D:\\Program Files\\ECU-TEST 2020.1\\ECU-TEST.exe"'
+        startET 'ECU-TEST'
       }
     }
 
