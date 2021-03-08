@@ -1,1 +1,1 @@
-print("start a ecu-test instance")
+print("start a ecu-test instance！！！")
