@@ -1,10 +1,17 @@
 pipeline {
-  agent {label 'ECU-TEST'}
+  agent none
   stages {
-    stage('init') {
+    stage('run') {
+      agent {
+        node {
+          label 'ECU-TEST'
+        }
+
+      }
       steps {
-        startET 'ECU-TEST'
+        bat 'start "D:\\Program Files\\ECU-TEST 2020.1\\ECU-TEST.exe"'
       }
     }
+
   }
 }
