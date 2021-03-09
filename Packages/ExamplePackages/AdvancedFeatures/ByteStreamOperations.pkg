@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="8.1.0.91368-BETA" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Type</NAME>
+				<VALUE xsi:type="string">MANUAL</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">IntList</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="pyObject">
+				<OBJECT xsi:type="string">[161, 178, 0, 239]</OBJECT>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">ByteStreamVariable</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<COMPLEX-DATA xsi:type="byteStream">
+					<CONTENT xsi:type="string">DE:AD:BE:AF</CONTENT>
+				</COMPLEX-DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="2761010" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">ByteStream creation</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2761028" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="byteStream">A1:B2:00:EF</VALUE>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761931" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<COMMENT xsi:type="string">Creation from list of integer values. Quotation marks are used to prevent automatic conversion of this kind of construction expression.</COMMENT>
+				<FORMULA format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">ByteStream([0xA1, 0xB2, 0x0, 0xEF])</VALUE>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761243" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<COMMENT xsi:type="string">Zero length ByteStream.</COMMENT>
+				<FORMULA format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="byteStream">::</VALUE>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761941" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<COMMENT xsi:type="string">Zero length ByteStream. Quotation marks are used to prevent automatic conversion of this kind of construction expression.</COMMENT>
+				<FORMULA format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">ByteStream(&quot;::&quot;)</VALUE>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761977" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">ByteStream</NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">IntList</NAME>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2762124" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Usage of an initialized ByteStream variable</DVALUE>
+					</ELEMENT>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Useage of an initialized ByteStream variable</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2762134" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ByteStreamVariable</NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">IBits</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2762152" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ByteStreamVariable</NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">MBits</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2761018" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Conversion to string</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2761104" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">str</NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2:00:FF</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761132" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">repr</NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2:00:FF</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761175" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2:00:FF</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">HexString</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2761286" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Conversion to list of integers</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2761318" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2:00:FF</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">Ints</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2761271" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Conversion to BitStream (and numbers)</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2761355" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">MBits</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761402" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">IBits</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761457" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">MBits</ATTR-NAME>
+					</COMPONENT>
+					<KEYWORD-ARGUMENTS>
+						<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+							<KEY format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">startBit</VALUE>
+							</KEY>
+							<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">12</VALUE>
+							</ARGUMENT>
+						</KEYWORD-ARGUMENT>
+						<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+							<KEY format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">bitLen</VALUE>
+							</KEY>
+							<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">8</VALUE>
+							</ARGUMENT>
+						</KEYWORD-ARGUMENT>
+					</KEYWORD-ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761472" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">IBits</ATTR-NAME>
+					</COMPONENT>
+					<KEYWORD-ARGUMENTS>
+						<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+							<KEY format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">startBit</VALUE>
+							</KEY>
+							<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">12</VALUE>
+							</ARGUMENT>
+						</KEYWORD-ARGUMENT>
+						<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+							<KEY format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">bitLen</VALUE>
+							</KEY>
+							<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">8</VALUE>
+							</ARGUMENT>
+						</KEYWORD-ARGUMENT>
+					</KEYWORD-ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761518" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="functionBaseExpression">
+							<COMPONENT xsi:type="attributeBaseExpression">
+								<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+								</COMPONENT>
+								<ATTR-NAME xsi:type="string">MBits</ATTR-NAME>
+							</COMPONENT>
+							<KEYWORD-ARGUMENTS>
+								<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+									<KEY format-rev="1" xsi:type="valueBaseExpression">
+										<VALUE xsi:type="string">startBit</VALUE>
+									</KEY>
+									<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+										<VALUE xsi:type="integer">12</VALUE>
+									</ARGUMENT>
+								</KEYWORD-ARGUMENT>
+								<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+									<KEY format-rev="1" xsi:type="valueBaseExpression">
+										<VALUE xsi:type="string">bitLen</VALUE>
+									</KEY>
+									<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+										<VALUE xsi:type="integer">8</VALUE>
+									</ARGUMENT>
+								</KEYWORD-ARGUMENT>
+							</KEYWORD-ARGUMENTS>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">UInt</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761521" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="functionBaseExpression">
+							<COMPONENT xsi:type="attributeBaseExpression">
+								<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+								</COMPONENT>
+								<ATTR-NAME xsi:type="string">IBits</ATTR-NAME>
+							</COMPONENT>
+							<KEYWORD-ARGUMENTS>
+								<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+									<KEY format-rev="1" xsi:type="valueBaseExpression">
+										<VALUE xsi:type="string">startBit</VALUE>
+									</KEY>
+									<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+										<VALUE xsi:type="integer">12</VALUE>
+									</ARGUMENT>
+								</KEYWORD-ARGUMENT>
+								<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+									<KEY format-rev="1" xsi:type="valueBaseExpression">
+										<VALUE xsi:type="string">bitLen</VALUE>
+									</KEY>
+									<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+										<VALUE xsi:type="integer">8</VALUE>
+									</ARGUMENT>
+								</KEYWORD-ARGUMENT>
+							</KEYWORD-ARGUMENTS>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">UInt</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2761550" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Indexing and slicing</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2761568" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">len</NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761583" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_SUBSCR</NAME>
+					<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">2</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761606" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="sliceBaseExpression">
+					<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+					</COMPONENT>
+					<START format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">1</VALUE>
+					</START>
+					<STOP format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">3</VALUE>
+					</STOP>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2761626" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Concatenation</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2761636" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_ADD</NAME>
+					<FIRST-COMPONENT xsi:type="binaryOpBaseExpression">
+						<NAME xsi:type="string">BINARY_ADD</NAME>
+						<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2</VALUE>
+						</FIRST-COMPONENT>
+						<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">C3</VALUE>
+						</SECOND-COMPONENT>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">FF</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761646" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_MULTIPLY</NAME>
+					<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">D4</VALUE>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">10</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2761687" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Reversion and bitwise inversion</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2761697" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">Reverse</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761712" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="unaryOpBaseExpression">
+					<NAME xsi:type="string">UNARY_INVERT</NAME>
+					<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">A1:B2:C3:FF</VALUE>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2761759" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Bitwise combination (AND, OR, XOR)</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2761777" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_AND</NAME>
+					<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">FF:00:FF</VALUE>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">00:FF:00</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761797" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_OR</NAME>
+					<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">FF:00:FF</VALUE>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">00:FF:00</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761833" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_XOR</NAME>
+					<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">FF:01:FF</VALUE>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="byteStream">00:FF:00</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2761897" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Bit replacing (yields a new ByteStream)</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2761907" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">00:00:00:00</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">SetMBits</ATTR-NAME>
+					</COMPONENT>
+					<KEYWORD-ARGUMENTS>
+						<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+							<KEY format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">startBit</VALUE>
+							</KEY>
+							<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">12</VALUE>
+							</ARGUMENT>
+						</KEYWORD-ARGUMENT>
+						<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+							<KEY format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">bits</VALUE>
+							</KEY>
+							<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="BitStream">
+									<DATA xsi:type="integer">171</DATA>
+									<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+								</VALUE>
+							</ARGUMENT>
+						</KEYWORD-ARGUMENT>
+					</KEYWORD-ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761922" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="byteStream">00:00:00:00</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">SetIBits</ATTR-NAME>
+					</COMPONENT>
+					<KEYWORD-ARGUMENTS>
+						<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+							<KEY format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">startBit</VALUE>
+							</KEY>
+							<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">12</VALUE>
+							</ARGUMENT>
+						</KEYWORD-ARGUMENT>
+						<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+							<KEY format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">bits</VALUE>
+							</KEY>
+							<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="BitStream">
+									<DATA xsi:type="integer">171</DATA>
+									<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+								</VALUE>
+							</ARGUMENT>
+						</KEYWORD-ARGUMENT>
+					</KEYWORD-ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

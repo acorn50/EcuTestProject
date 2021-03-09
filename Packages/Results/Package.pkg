@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="8.1.0.91368-BETA" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Type</NAME>
+				<VALUE xsi:type="string">MANUAL</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">A_CAN_DISP_DAY</NAME>
+			<DEFAULT-VALUE xsi:type="undefined"/>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">A-CAN/DISP_DAY</ID>
+			<XACCESS format-rev="1" xsi:type="xaBusSignalVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<BUS-KEY xsi:type="string">A-CAN</BUS-KEY>
+				<FRAME-NAME xsi:type="string">TIME_DATE</FRAME-NAME>
+				<SIGNAL-NAME xsi:type="string">DISP_DAY</SIGNAL-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">A-CAN/DISP_DAY_manip</ID>
+			<XACCESS format-rev="1" xsi:type="xaBusSignalVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<BUS-KEY xsi:type="string">A-CAN</BUS-KEY>
+				<FRAME-NAME xsi:type="string">TIME_DATE</FRAME-NAME>
+				<SIGNAL-NAME xsi:type="string">DISP_DAY</SIGNAL-NAME>
+				<MANIPULATION xsi:type="signalManipulationParams">
+					<DURATION style="message-count" xsi:type="manipulationDuration">
+						<VALUE xsi:type="integer">0</VALUE>
+					</DURATION>
+				</MANIPULATION>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP id="2212065" xsi:type="tsWrite">
+			<MAPPING-REF xsi:type="string">A-CAN/DISP_DAY_manip</MAPPING-REF>
+			<VALUE xsi:type="expressionValue">
+				<DATA format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">0</VALUE>
+				</DATA>
+			</VALUE>
+			<METRIC format-rev="1" xsi:type="metricInfo">
+				<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+				<VALUE-TYPE xsi:type="string">PHYS</VALUE-TYPE>
+				<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+			</METRIC>
+		</TESTSTEP>
+		<TESTSTEP id="2212000" xsi:type="tsRead">
+			<MAPPING-REF xsi:type="string">A-CAN/DISP_DAY</MAPPING-REF>
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="default">
+					<DVALUE xsi:type="string">A_CAN_DISP_DAY</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<EXPECTATION xsi:type="timelessOption">
+				<EXPRESSION xsi:type="builtNumericExpression">
+					<RELATION xsi:type="string">==</RELATION>
+					<VALUE format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">0</VALUE>
+					</VALUE>
+				</EXPRESSION>
+			</EXPECTATION>
+			<METRIC format-rev="1" xsi:type="metricInfo">
+				<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+				<VALUE-TYPE xsi:type="string">PHYS</VALUE-TYPE>
+				<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+			</METRIC>
+		</TESTSTEP>
+		<TESTSTEP id="2212010" name="TsIfThenElse" xsi:type="utility-3609c41e-4fef-11dc-899a-0013728784ee">
+			<CONDITION xsi:type="compareOpBaseExpression">
+				<NAME xsi:type="string">==</NAME>
+				<FIRST-COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">A_CAN_DISP_DAY</NAME>
+				</FIRST-COMPONENT>
+				<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">0</VALUE>
+				</SECOND-COMPONENT>
+			</CONDITION>
+			<THEN id="2212008" xsi:type="ifThenElseNode">
+				<TESTSTEP format-rev="1" id="2212012" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+					<COMMENT-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">Value equals 0!</VALUE>
+					</COMMENT-EXPRESSION>
+				</TESTSTEP>
+			</THEN>
+			<ELSE id="2212009" xsi:type="ifThenElseNode">
+				<TESTSTEP format-rev="1" id="2212020" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+					<COMMENT-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">Value does not equal 0!</VALUE>
+					</COMMENT-EXPRESSION>
+				</TESTSTEP>
+			</ELSE>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

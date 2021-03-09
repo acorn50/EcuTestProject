@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="8.1.0.91368-BETA" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Type</NAME>
+				<VALUE xsi:type="string">MANUAL</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="1" id="15849354" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+			<COMMENT-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">Everyday Package 1</VALUE>
+			</COMMENT-EXPRESSION>
+			<COMMENT-VERDICT xsi:type="string">SUCCESS</COMMENT-VERDICT>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

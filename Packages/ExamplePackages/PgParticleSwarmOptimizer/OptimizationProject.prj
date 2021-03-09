@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PROJECT format-rev="10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<NAME xsi:type="string">Projekt</NAME>
+	<ENABLED xsi:type="boolean">True</ENABLED>
+	<REPORTING xsi:type="boolean">True</REPORTING>
+	<ID xsi:type="string">9dcedcf0d3a311e8b4e6a44cc803d381</ID>
+	<COMPONENTS>
+		<COMPONENT format-rev="5" xsi:type="packageTest">
+			<NAME xsi:type="string">PackageToOptimize</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<ID xsi:type="string">a50fdb91d3a311e88b08a44cc803d381</ID>
+			<COMPONENTS>
+				<COMPONENT format-rev="1" xsi:type="variationSet">
+					<NAME xsi:type="string">Particle swarm optimizer</NAME>
+					<ENABLED xsi:type="boolean">True</ENABLED>
+					<REPORTING xsi:type="boolean">True</REPORTING>
+					<ID xsi:type="string">a50fdb90d3a311e89a60a44cc803d381</ID>
+					<COMPONENTS/>
+					<PARAM-GENERATOR xsi:type="paramGenerator-603089f2-4f80-4dbc-9157-64fec37c913c">
+						<SWARM-SIZE xsi:type="integer">5</SWARM-SIZE>
+						<OPTIMIZATION-MODE xsi:type="string">min</OPTIMIZATION-MODE>
+						<MAX-ITERATIONS xsi:type="integer">10</MAX-ITERATIONS>
+						<OMEGA xsi:type="float">0.5</OMEGA>
+						<MIN-STEP-SIZE xsi:type="float">1e-08</MIN-STEP-SIZE>
+						<PARTICLE-SEARCH-SPREAD xsi:type="float">0.5</PARTICLE-SEARCH-SPREAD>
+						<OUTPUT-TO-OPTIMIZE xsi:type="string">out_c</OUTPUT-TO-OPTIMIZE>
+						<MIN-FUNCTION-CHANGE xsi:type="float">1e-08</MIN-FUNCTION-CHANGE>
+						<MIN-MAX-VALUES>
+							<ELEMENT dkey="in_a">
+								<DVALUE xsi:type="list">
+									<ELEMENT xsi:type="float">-5.0</ELEMENT>
+									<ELEMENT xsi:type="float">5.0</ELEMENT>
+								</DVALUE>
+							</ELEMENT>
+							<ELEMENT dkey="in_b">
+								<DVALUE xsi:type="list">
+									<ELEMENT xsi:type="float">-5.0</ELEMENT>
+									<ELEMENT xsi:type="float">5.0</ELEMENT>
+								</DVALUE>
+							</ELEMENT>
+						</MIN-MAX-VALUES>
+						<SWARM-SEARCH-SPREAD xsi:type="float">0.5</SWARM-SEARCH-SPREAD>
+					</PARAM-GENERATOR>
+				</COMPONENT>
+			</COMPONENTS>
+			<PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+				<PACKAGE-PATH xsi:type="string">PackageToOptimize.pkg</PACKAGE-PATH>
+			</PACKAGE-REF>
+		</COMPONENT>
+	</COMPONENTS>
+</PROJECT>

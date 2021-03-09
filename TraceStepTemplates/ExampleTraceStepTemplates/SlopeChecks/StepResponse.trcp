@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TRACE-STEP-PROTOTYPE uuid="9bee9a5b931711de8b08028037130300" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="trcpLogic">
+	<DESCRIPTION xsi:type="string">
+		checks that every change in Signal_0 resulting in Signal_0 being Signal_0_HIGH is answered by a similar change in Signal_1 such that Signal_1 equals Signal_1_HIGH within maxDeltaT seconds
+	</DESCRIPTION>
+	<SIGNALS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="9bee9a51931711deb230028037130300" xsi:type="signalDescription">
+			<NAME xsi:type="string">
+				Signal_0
+			</NAME>
+			<EVENT-TYPE xsi:type="string">
+				PHY
+			</EVENT-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="9bee9a53931711deba14028037130300" xsi:type="signalDescription">
+			<NAME xsi:type="string">
+				Signal_1
+			</NAME>
+			<EVENT-TYPE xsi:type="string">
+				PHY
+			</EVENT-TYPE>
+		</PARAMETER>
+	</SIGNALS>
+	<PARAMETERS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="9bee9a55931711de8e8d028037130300" xsi:type="parameterDescription">
+			<NAME xsi:type="string">
+				Signal_0_HIGH
+			</NAME>
+			<PARAMETER-TYPE xsi:type="string">
+				FLOAT
+			</PARAMETER-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="9bee9a57931711debb49028037130300" xsi:type="parameterDescription">
+			<NAME xsi:type="string">
+				Signal_1_HIGH
+			</NAME>
+			<PARAMETER-TYPE xsi:type="string">
+				FLOAT
+			</PARAMETER-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="9bee9a59931711de89ff028037130300" xsi:type="parameterDescription">
+			<NAME xsi:type="string">
+				maxDeltaT
+			</NAME>
+			<PARAMETER-TYPE xsi:type="string">
+				FLOAT
+			</PARAMETER-TYPE>
+		</PARAMETER>
+	</PARAMETERS>
+	<FORMULA xsi:type="string">
+		(Change(Signal_0) and &quot;Signal_0==Signal_0_HIGH&quot; )
+-&gt; F[0,maxDeltaT](Change(Signal_1) and &quot;Signal_1==Signal_1_HIGH&quot;)
+	</FORMULA>
+</TRACE-STEP-PROTOTYPE>

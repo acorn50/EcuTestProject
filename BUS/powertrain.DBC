@@ -1,0 +1,23 @@
+VERSION "HIPBNNNYNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN/4/%%%/4/'%**4NNN///"
+
+BO_ 100 TIME_DATE: 8 INSTR
+ SG_ DISP_YEAR : 40|16@1+ (1,0) [0|0] ""  dummy
+ SG_ DISP_MONTH : 36|4@1+ (1,0) [0|0] ""  dummy
+ SG_ DISP_WDAY : 32|4@1+ (1,0) [0|0] ""  dummy
+ SG_ DISP_DAY : 24|8@1+ (1,0) [0|0] ""  dummy
+ SG_ DISP_SECOND : 16|8@1+ (1,0) [0|0] "s"  dummy
+ SG_ DISP_MINUTE : 8|8@1+ (1,0) [0|0] "min"  dummy
+ SG_ DISP_HOUR : 0|8@1+ (1,0) [0|0] "h"  dummy
+
+BO_ 200 ENG_DATA: 8 DME1_DDE1
+ SG_ ENG_RPM : 40|16@1+ (0.25,0) [0|12000] "1/min"  dummy
+ SG_ ENG_TEMP : 0|16@1+ (1,0) [0|120] "°C"  dummy
+ SG_ ENG_TORQ : 16|12@1+ (0.5,-1023.5) [-1023.5|1023.5] "Nm"  dummy
+
+BO_ 300 CLAMPS: 8 DME1_DDE1
+ SG_ KL15 : 32|16@1+ (1,0) [0|0] ""  dummy
+ SG_ KL30 : 8|4@1+ (1,0) [0|0] ""  dummy
+ SG_ KL31 : 0|8@1+ (1,0) [0|0] ""  dummy
+
+EV_ TestVar: 0 [0|0] "" 0 1 DUMMY_NODE Vector__XXX;
+

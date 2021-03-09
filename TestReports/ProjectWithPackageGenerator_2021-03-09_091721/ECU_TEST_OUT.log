@@ -1,0 +1,14 @@
+
+
+= 09.03.2021 09:17:22 (UTC +8:00) === ECU-TEST 2020.1.95870 95870 (2020/03/11 16:02:50) (64bit) ===
+
+
+
+2021-03-09 09:17:22.176 2072 ManagedWorker-1 ERROR: 
+                        tts.core.project.projectStep.PackageGeneratorCycleSet.Run: No TCF loaded containing bus: A-CAN
+2021-03-09 09:17:22.204 2072 ManagedWorker-1 ERROR: 
+                        tts.core.project.engine.ProjectEngine.ExecComponent: Error in package generator 'DLC check Generator' ("tts\core\api\dataBrowserApi\DataBrowser.py", line 228, in BrowseBus):
+No TCF loaded containing bus: A-CAN
+2021-03-09 09:17:22.221 2072 ManagedWorker-1 ERROR: 
+                        Error in package generator 'DLC check Generator' ("tts\core\api\dataBrowserApi\DataBrowser.py", line 228, in BrowseBus):
+No TCF loaded containing bus: A-CAN

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="8.1.0.91368-BETA" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Type</NAME>
+				<VALUE xsi:type="string">MANUAL</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string">The standard trace step template 'ApplyTransferFunction' can be used to test the correct response of a system to an input signal. This can be of particular interest for testing controllers where a direct comparison of reference signal and measured system response is not feasible. The comparison with a modelled system response formed from the input signal works better here.
+
+In the first step, specify the system type (P, I, PT1, ...) manually. This example demonstrates how the particle swarm optimizer can be used to find optimal system parameters for the selected system model, so that the calculated and the measured system response show minimal differences. Run the project 'ApplyTransferFunction' to start the optimization process, which takes about 200 iterations depending on the optimization settings. The parameter values found are displayed in the message window when execution is complete. Please note that the optimal values are usually NOT found in the last iteration!
+
+This step has to be repeated only if the system behavior changes fundamentally, for example due to modifications of its internal structure.</DESCRIPTION>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">paramK</NAME>
+			<DESCRIPTION xsi:type="string">Gain factor for PT1 transfer function</DESCRIPTION>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">paramT</NAME>
+			<DESCRIPTION xsi:type="string">Time constant for PT1 transfer function</DESCRIPTION>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" out="true" xsi:type="variable">
+			<NAME xsi:type="string">rmsMetric</NAME>
+			<DESCRIPTION xsi:type="string">Root mean square value for parameter optimization</DESCRIPTION>
+			<DEFAULT-VALUE xsi:type="pyObject">
+				<OBJECT xsi:type="string">None</OBJECT>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">SystemInput</ID>
+			<XACCESS format-rev="1" xsi:type="xaTraceFileSignal">
+				<SIGNAL-NAME xsi:type="string">SystemInput</SIGNAL-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">SystemResponse</ID>
+			<XACCESS format-rev="1" xsi:type="xaTraceFileSignal">
+				<SIGNAL-NAME xsi:type="string">SystemResponse</SIGNAL-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TRACE-RECORDING format-rev="1" xsi:type="recordingManager">
+		<SIGNAL-GROUPS>
+			<ELEMENT format-rev="2" xsi:type="signalGroup">
+				<NAME xsi:type="string">Stimulation.sti</NAME>
+				<SIGNALS>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">SystemInput</MAPPING-REF>
+					</ELEMENT>
+				</SIGNALS>
+			</ELEMENT>
+			<ELEMENT format-rev="2" xsi:type="signalGroup">
+				<NAME xsi:type="string">default</NAME>
+				<SIGNALS>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">SystemResponse</MAPPING-REF>
+					</ELEMENT>
+				</SIGNALS>
+			</ELEMENT>
+		</SIGNAL-GROUPS>
+		<RECORDING-GROUP>
+			<ELEMENT format-rev="2" xsi:type="recordingGroup">
+				<NAME xsi:type="string">Recording group for Stimulation.sti</NAME>
+				<UUID xsi:type="string">d123a94a7df011e99b4afc7774225dae</UUID>
+				<RECORDINGS>
+					<ELEMENT format-rev="2" xsi:type="recordingInfo">
+						<RECORDING-TYPE xsi:type="string">STI</RECORDING-TYPE>
+						<PATHS>
+							<PATH xsi:type="fileReference">
+								<PATH xsi:type="string">ExampleTraces\ApplyTransferFunction\Stimulation.sti</PATH>
+								<PATH-TYPE xsi:type="string">relTraces</PATH-TYPE>
+							</PATH>
+						</PATHS>
+						<RECORDING-NAME xsi:type="string">Stimulation.sti</RECORDING-NAME>
+						<FORMAT-DETAILS xsi:type="string">100.0</FORMAT-DETAILS>
+					</ELEMENT>
+				</RECORDINGS>
+				<SIGNAL-GROUP-REF>Stimulation.sti</SIGNAL-GROUP-REF>
+			</ELEMENT>
+			<ELEMENT format-rev="2" xsi:type="recordingGroup">
+				<NAME xsi:type="string">Recording group for default</NAME>
+				<UUID xsi:type="string">04db1ff67df111e9980bfc7774225dae</UUID>
+				<RECORDINGS>
+					<ELEMENT format-rev="2" xsi:type="recordingInfo">
+						<RECORDING-TYPE xsi:type="string">CSV</RECORDING-TYPE>
+						<PATHS>
+							<PATH xsi:type="fileReference">
+								<PATH xsi:type="string">ExampleTraces\ApplyTransferFunction\Testsignal.csv</PATH>
+								<PATH-TYPE xsi:type="string">relTraces</PATH-TYPE>
+							</PATH>
+						</PATHS>
+						<RECORDING-NAME xsi:type="string">default</RECORDING-NAME>
+						<FORMAT-DETAILS xsi:type="string">columnSeparator: ';', decimalSeparator: '.', thousandSeparator: ',', headLineNumber: '0', timeColumn: '0'</FORMAT-DETAILS>
+					</ELEMENT>
+				</RECORDINGS>
+				<SIGNAL-GROUP-REF>default</SIGNAL-GROUP-REF>
+			</ELEMENT>
+		</RECORDING-GROUP>
+		<SYNCHRONISATION-CONFIG xsi:type="syncConfig"/>
+		<TRACE-MERGE-FILEPATH format-rev="1" xsi:type="valueBaseExpression">
+			<VALUE xsi:type="string"/>
+		</TRACE-MERGE-FILEPATH>
+	</TRACE-RECORDING>
+	<TRACE-ANALYSES format-rev="1" xsi:type="traceAnalyses">
+		<TRACE-ANALYSIS format-rev="3" uuid="9b5ad2927acd11e99428fc7774225dae" xsi:type="traceAnalysis">
+			<NAME xsi:type="string">Traceanalyse 1</NAME>
+			<DESCRIPTION xsi:type="string">The standard trace step template 'ApplyTransferFunction' can be used to test the correct response of a system to an input signal. This can be of particular interest for testing controllers where a direct comparison of reference signal and measured system response is not feasible. The comparison with a modelled system response formed from the input signal works better here.
+
+In the first step, specify the system type (P, I, PT1, ...) manually. This example shows how the particle swarm optimizer can be used to find optimal system parameters for the selected system model, so that the calculated and the measured system response show minimal differences. Run the project 'ApplyTransferFunction' to start the optimization process, which takes about 200 iterations depending on the optimization settings. The parameter values found are displayed in the message window when execution is complete. Please note that the optimal values are usually NOT found in the last iteration!
+
+This step has to be repeated only if the system behavior changes fundamentally, for example due to modifications of its internal structure.</DESCRIPTION>
+			<ANALYSISITEM format-rev="1" uuid="1b625a9e7af611e9ae39fc7774225dae" xsi:type="episode">
+				<NAME xsi:type="string">Parameter optimization</NAME>
+				<DESCRIPTION xsi:type="string">Find optimized parameters for transfer function (see result output in message window).</DESCRIPTION>
+				<ANALYSISITEM format-rev="2" poolRev="5" uuid="4b3632807af611e98990fc7774225dae" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">ApplyTransferFunction</NAME>
+					<ANALYSISITEM format-rev="3" uuid="4b3632817af611e98eb0fc7774225dae" xsi:type="plotItem">
+						<NAME xsi:type="string">Plot</NAME>
+						<VISIBLE xsi:type="boolean">False</VISIBLE>
+						<SUB-PLOTS>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES>
+									<ENTITY format-rev="1" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">u</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">y</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+								</ENTITIES>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">separate</TYPE>
+								<ENTITIES/>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES/>
+								<AXES/>
+							</SUB-PLOT>
+						</SUB-PLOTS>
+						<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NONE</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-OVERVIEW>
+						<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-PARENT-CONTEXT>
+						<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-DETAILS>
+						<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+						<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+					</ANALYSISITEM>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="u">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">SystemInput</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="y">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">SystemModel</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="FunctionParameters">
+								<DVALUE xsi:type="dictBaseExpression">
+									<EXPRESSION-DICT>
+										<ITEM xsi:type="expressionDictItem">
+											<KEY format-rev="1" xsi:type="valueBaseExpression">
+												<VALUE xsi:type="string">K</VALUE>
+											</KEY>
+											<VALUE xsi:type="varBaseExpression">
+												<NAME xsi:type="string">paramK</NAME>
+											</VALUE>
+										</ITEM>
+										<ITEM xsi:type="expressionDictItem">
+											<KEY format-rev="1" xsi:type="valueBaseExpression">
+												<VALUE xsi:type="string">T</VALUE>
+											</KEY>
+											<VALUE xsi:type="varBaseExpression">
+												<NAME xsi:type="string">paramT</NAME>
+											</VALUE>
+										</ITEM>
+									</EXPRESSION-DICT>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="LimitOutputSlope">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="boolean">False</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="MaximumOutputSlope">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="RegisterOfFunctions">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">{&quot;P&quot;: {&quot;K&quot;: &quot;None&quot;}, &quot;I&quot;: {&quot;T&quot;: &quot;None&quot;}, &quot;D&quot;: {&quot;T&quot;: &quot;None&quot;}, &quot;PD1&quot;: {&quot;K&quot;: &quot;None&quot;, &quot;T&quot;: &quot;None&quot;}, &quot;PT1&quot;: {&quot;K&quot;: &quot;paramK&quot;, &quot;T&quot;: &quot;paramT&quot;}, &quot;PT2&quot;: {&quot;K&quot;: &quot;None&quot;, &quot;D&quot;: &quot;None&quot;, &quot;T&quot;: &quot;None&quot;}}</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="TransferFunction">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">PT1</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">100</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.0</MIN-DELTA>
+					</REPORT-CONFIG>
+					<PROTOTYPE-ID xsi:type="string">Calculate\SignalAnalysis\ApplyTransferFunction</PROTOTYPE-ID>
+				</ANALYSISITEM>
+				<ANALYSISITEM format-rev="1" uuid="e83e2ba47af611e984e7fc7774225dae" xsi:type="calculation">
+					<ANALYSISITEM format-rev="3" uuid="0e06f9fe7af711e988b8fc7774225dae" xsi:type="plotItem">
+						<NAME xsi:type="string">Plot</NAME>
+						<VISIBLE xsi:type="boolean">False</VISIBLE>
+						<SUB-PLOTS>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES>
+									<ENTITY format-rev="1" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">SystemModel</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">Difference</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+								</ENTITIES>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">separate</TYPE>
+								<ENTITIES/>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES/>
+								<AXES/>
+							</SUB-PLOT>
+						</SUB-PLOTS>
+						<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NONE</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-OVERVIEW>
+						<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-PARENT-CONTEXT>
+						<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-DETAILS>
+						<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+						<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+					</ANALYSISITEM>
+					<NAME xsi:type="string">Calculation</NAME>
+					<FORMULA xsi:type="string">SystemResponse - SystemModel</FORMULA>
+					<SAVE-IN xsi:type="string">Difference</SAVE-IN>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">100</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.0</MIN-DELTA>
+					</REPORT-CONFIG>
+				</ANALYSISITEM>
+				<ANALYSISITEM format-rev="2" poolRev="5" uuid="96ae2b9d7b9411e9a9b7fc7774225dae" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">CalculateRootMeanSquare</NAME>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="RootMeanSquare">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">Difference</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="rootMeanSquare">
+								<DVALUE xsi:type="varBaseExpression">
+									<NAME xsi:type="string">rmsMetric</NAME>
+								</DVALUE>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">100</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.0</MIN-DELTA>
+					</REPORT-CONFIG>
+					<PROTOTYPE-ID xsi:type="string">Calculate\Statistics\CalculateRootMeanSquare</PROTOTYPE-ID>
+				</ANALYSISITEM>
+			</ANALYSISITEM>
+			<VIRTUAL-SIGNALS-MANAGER xsi:type="virtualSignalsManager">
+				<VIRTUAL-SIGNALS>
+					<VIRTUAL-SIGNAL uuid="73da7f887df111e9ae2efc7774225dae" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">SystemInput</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">SystemInput</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">d123a94a7df011e99b4afc7774225dae</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="7e0ce9f07d4411e986dafc7774225dae" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">SystemResponse</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">SystemResponse</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">04db1ff67df111e9980bfc7774225dae</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="a5fddd1e7df111e9ae20fc7774225dae" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">SystemModel</NAME>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="b4027c587df111e98c37fc7774225dae" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">Difference</NAME>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+				</VIRTUAL-SIGNALS>
+			</VIRTUAL-SIGNALS-MANAGER>
+		</TRACE-ANALYSIS>
+	</TRACE-ANALYSES>
+</PACKAGE>

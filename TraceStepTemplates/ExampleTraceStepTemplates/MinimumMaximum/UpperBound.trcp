@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TRACE-STEP-PROTOTYPE uuid="2ee69d92931711deb3e3028037130300" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="trcpLogic">
+	<DESCRIPTION xsi:type="string">
+		checks that the signal never exceeds the given threshold
+	</DESCRIPTION>
+	<SIGNALS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="2ee42c91931711de800f028037130300" xsi:type="signalDescription">
+			<NAME xsi:type="string">
+				Signal
+			</NAME>
+			<EVENT-TYPE xsi:type="string">
+				PHY
+			</EVENT-TYPE>
+		</PARAMETER>
+	</SIGNALS>
+	<PARAMETERS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="2ee69d90931711de8615028037130300" xsi:type="parameterDescription">
+			<NAME xsi:type="string">
+				Threshold
+			</NAME>
+			<PARAMETER-TYPE xsi:type="string">
+				FLOAT
+			</PARAMETER-TYPE>
+		</PARAMETER>
+	</PARAMETERS>
+	<FORMULA xsi:type="string">
+		&quot;Signal&lt;=Threshold&quot;
+	</FORMULA>
+</TRACE-STEP-PROTOTYPE>

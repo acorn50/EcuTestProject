@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TRACE-STEP-PROTOTYPE uuid="9f4aa70f1f1c11e0b61b0024d7351970" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="trcpEventPythonII">
+	<SIGNALS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="a3e47a801f1c11e0b7400024d7351970" xsi:type="signalDescription">
+			<NAME xsi:type="string">EngSpeed</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="a40cea0f1f1c11e09c400024d7351970" xsi:type="signalDescription">
+			<NAME xsi:type="string">Gear</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="a42c0acf1f1c11e0a4c70024d7351970" xsi:type="signalDescription">
+			<NAME xsi:type="string">CarSpeed_calculated</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<DIRECTION xsi:type="string">OUT</DIRECTION>
+		</PARAMETER>
+	</SIGNALS>
+	<PARAMETERS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="c363fc511f1c11e0b6710024d7351970" xsi:type="parameterDescription">
+			<NAME xsi:type="string">factorGear0</NAME>
+			<PARAMETER-TYPE xsi:type="string">FLOAT</PARAMETER-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="c39d34c01f1c11e0b46e0024d7351970" xsi:type="parameterDescription">
+			<NAME xsi:type="string">factorGear1</NAME>
+			<PARAMETER-TYPE xsi:type="string">FLOAT</PARAMETER-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="c3be78611f1c11e0966f0024d7351970" xsi:type="parameterDescription">
+			<NAME xsi:type="string">factorGear2</NAME>
+			<PARAMETER-TYPE xsi:type="string">FLOAT</PARAMETER-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="c3dd99211f1c11e08a5f0024d7351970" xsi:type="parameterDescription">
+			<NAME xsi:type="string">factorGear3</NAME>
+			<PARAMETER-TYPE xsi:type="string">FLOAT</PARAMETER-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="c4014dc01f1c11e09f550024d7351970" xsi:type="parameterDescription">
+			<NAME xsi:type="string">factorGear4</NAME>
+			<PARAMETER-TYPE xsi:type="string">FLOAT</PARAMETER-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="eadc5b0f1f1c11e0ae610024d7351970" xsi:type="parameterDescription">
+			<NAME xsi:type="string">factorGear5</NAME>
+			<PARAMETER-TYPE xsi:type="string">FLOAT</PARAMETER-TYPE>
+		</PARAMETER>
+	</PARAMETERS>
+	<INIT-FUNCTION xsi:type="pyFunctionII">
+		<NAME xsi:type="string">Init</NAME>
+		<PARAMETER-NAMES/>
+		<CODE xsi:type="pyCode">
+			<SOURCE xsi:type="string">#Funktionskopf generiert, nicht editieren!
+def Init(dataContainer, parameters, report):
+    pass
+</SOURCE>
+		</CODE>
+	</INIT-FUNCTION>
+	<FINALIZE-FUNCTION xsi:type="pyFunctionII">
+		<NAME xsi:type="string">Finalize</NAME>
+		<PARAMETER-NAMES/>
+		<CODE xsi:type="pyCode">
+			<SOURCE xsi:type="string">#Funktionskopf generiert, nicht editieren!
+def Finalize(dataContainer, parameters, report):
+    pass
+</SOURCE>
+		</CODE>
+	</FINALIZE-FUNCTION>
+	<FUNCTIONS>
+		<ELEMENT xsi:type="pyEventFunctionII">
+			<NAME xsi:type="string">Next</NAME>
+			<PARAMETER-NAMES/>
+			<CODE xsi:type="pyCode">
+				<SOURCE xsi:type="string">#Funktionskopf generiert, nicht editieren!
+def Next(event, hold, dataContainer, parameters, report):
+
+    engspeed = event.GetSignal(&quot;EngSpeed&quot;)
+    gear = hold.GetSignal(&quot;Gear&quot;)
+
+    if engspeed is not None and gear is not None:
+        
+        engspeedValue = engspeed.GetValue()
+        gearValue = gear.GetValue()
+
+        if gearValue == 0: 
+            gearfactor = parameters[&quot;factorGear0&quot;]
+        elif gearValue == 1:
+            gearfactor = parameters[&quot;factorGear1&quot;]
+        elif gearValue == 2:
+            gearfactor = parameters[&quot;factorGear2&quot;]
+        elif gearValue == 3:
+            gearfactor = parameters[&quot;factorGear3&quot;]
+        elif gearValue == 4:
+            gearfactor = parameters[&quot;factorGear4&quot;]
+        elif gearValue == 5:
+            gearfactor = parameters[&quot;factorGear5&quot;]
+        else:
+            report.SetResultError()
+            report.SetResultText('Invalid value for signal &quot;Gear&quot;.')
+            return
+
+        dataContainer.EmitSignal(event.GetTime(), &quot;CarSpeed_calculated&quot;, engspeedValue * gearfactor)
+</SOURCE>
+			</CODE>
+			<SIGNAL-NAMES>
+				<ELEMENT xsi:type="string">EngSpeed</ELEMENT>
+				<ELEMENT xsi:type="string">Gear</ELEMENT>
+			</SIGNAL-NAMES>
+		</ELEMENT>
+	</FUNCTIONS>
+</TRACE-STEP-PROTOTYPE>

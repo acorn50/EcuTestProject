@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PROJECT format-rev="10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<NAME xsi:type="string">Project</NAME>
+	<ENABLED xsi:type="boolean">True</ENABLED>
+	<REPORTING xsi:type="boolean">True</REPORTING>
+	<ID xsi:type="string">27a86dfa7d2711e9972dfc7774225dae</ID>
+	<COMPONENTS>
+		<COMPONENT format-rev="5" xsi:type="packageTest">
+			<NAME xsi:type="string">TransferFunction_Parameters</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<ID xsi:type="string">4f8339ff7d2711e993a6fc7774225dae</ID>
+			<COMPONENTS>
+				<COMPONENT format-rev="1" xsi:type="variationSet">
+					<NAME xsi:type="string">Particle swarm optimizer</NAME>
+					<ENABLED xsi:type="boolean">True</ENABLED>
+					<REPORTING xsi:type="boolean">True</REPORTING>
+					<ID xsi:type="string">4f8339fe7d2711e9a1dcfc7774225dae</ID>
+					<COMPONENTS/>
+					<PARAM-GENERATOR xsi:type="paramGenerator-603089f2-4f80-4dbc-9157-64fec37c913c">
+						<OPTIMIZATION-MODE xsi:type="string">min</OPTIMIZATION-MODE>
+						<OUTPUT-TO-OPTIMIZE xsi:type="string">rmsMetric</OUTPUT-TO-OPTIMIZE>
+						<SWARM-SIZE xsi:type="integer">10</SWARM-SIZE>
+						<OMEGA xsi:type="float">0.5</OMEGA>
+						<PARTICLE-SEARCH-SPREAD xsi:type="float">0.5</PARTICLE-SEARCH-SPREAD>
+						<SWARM-SEARCH-SPREAD xsi:type="float">0.5</SWARM-SEARCH-SPREAD>
+						<MAX-ITERATIONS xsi:type="integer">20</MAX-ITERATIONS>
+						<MIN-STEP-SIZE xsi:type="float">1e-08</MIN-STEP-SIZE>
+						<MIN-FUNCTION-CHANGE xsi:type="float">1e-08</MIN-FUNCTION-CHANGE>
+						<MIN-MAX-VALUES>
+							<ELEMENT dkey="paramK">
+								<DVALUE xsi:type="list">
+									<ELEMENT xsi:type="float">0.0</ELEMENT>
+									<ELEMENT xsi:type="float">2.0</ELEMENT>
+								</DVALUE>
+							</ELEMENT>
+							<ELEMENT dkey="paramT">
+								<DVALUE xsi:type="list">
+									<ELEMENT xsi:type="float">0.0</ELEMENT>
+									<ELEMENT xsi:type="float">2.0</ELEMENT>
+								</DVALUE>
+							</ELEMENT>
+						</MIN-MAX-VALUES>
+					</PARAM-GENERATOR>
+				</COMPONENT>
+			</COMPONENTS>
+			<PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+				<PACKAGE-PATH xsi:type="string">TransferFunction_Parameters.pkg</PACKAGE-PATH>
+			</PACKAGE-REF>
+		</COMPONENT>
+		<COMPONENT format-rev="5" xsi:type="packageTest">
+			<NAME xsi:type="string">SystemResponse_Test</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<ID xsi:type="string">05eab378808811e99687e4b97a806ceb</ID>
+			<COMPONENTS/>
+			<PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+				<PACKAGE-PATH xsi:type="string">SystemResponse_Test.pkg</PACKAGE-PATH>
+			</PACKAGE-REF>
+		</COMPONENT>
+	</COMPONENTS>
+	<ABORT-ON-SUBPROJECT-ABORT xsi:type="boolean">True</ABORT-ON-SUBPROJECT-ABORT>
+</PROJECT>

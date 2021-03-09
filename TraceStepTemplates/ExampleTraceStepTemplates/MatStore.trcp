@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TRACE-STEP-PROTOTYPE format-rev="1" uuid="130205705a0a11ea9206e4b97a72f2be" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="trcpEventPythonII">
+	<DESCRIPTION xsi:type="string">Example how to write a MAT file via a trace step template.
+
+Note: This is only an example. If the actual file format is not restricted to MAT for you, better use the signal recording step of the trace analysis to store a MDF or CSV file!</DESCRIPTION>
+	<SIGNALS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="1f5a8b285a0a11ea84e5e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_0</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="20ded0d05a0a11ea84c7e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_1</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="2105dbc25a0a11ea8f29e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_2</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="212a78a25a0a11ea9266e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_3</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="215046885a0a11ea985be4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_4</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="2173be865a0a11eaa43ce4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_5</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="219992365a0a11eab741e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_6</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="21bbb6a25a0a11eaa633e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_7</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="21e670d85a0a11eaad91e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_8</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="2224de2c5a0a11ea8f21e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_9</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="225808705a0a11ea870ae4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_10</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="22a005245a0a11eab48ce4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_11</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="22d5ca6e5a0a11ea93fde4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_12</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="23019b3a5a0a11eab6fee4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_13</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="233c37425a0a11ea97f0e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_14</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="237a80b45a0a11ea8c07e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_15</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="23b51d105a0a11eaafd6e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_16</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="23e996905a0a11ea8c1ee4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_17</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="24b930105a0a11ea95a3e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_18</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+		<PARAMETER uuid="24e9f9dc5a0a11ea8052e4b97a72f2be" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal_19</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+			<OPTIONAL-SIGNAL xsi:type="boolean">True</OPTIONAL-SIGNAL>
+		</PARAMETER>
+	</SIGNALS>
+	<PARAMETERS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="4202b0945a0a11eaa75be4b97a72f2be" xsi:type="parameterDescription">
+			<NAME xsi:type="string">filename</NAME>
+			<PARAMETER-TYPE xsi:type="string">STRING</PARAMETER-TYPE>
+		</PARAMETER>
+	</PARAMETERS>
+	<INIT-FUNCTION xsi:type="pyFunctionII">
+		<NAME xsi:type="string">Init</NAME>
+		<PARAMETER-NAMES/>
+		<CODE xsi:type="pyCode">
+			<SOURCE xsi:type="string">#Funktionskopf generiert, nicht editieren!
+def Init(dataContainer, parameters, report):
+    # non abolute filenames are relative to the report folder
+    dataContainer.ms = dataContainer.CreateMatStore(parameters['filename'])
+    
+    # regsiter all signals
+    for signalName in dataContainer.GetTemplateSignalNames():
+        genSigName = dataContainer.GetGenericSignalName(signalName)
+        if genSigName is None:
+            # if name is not mapped (optional signal) generic signal name
+            # will be None
+            continue
+        dataContainer.ms.RegisterSignalByName(genSigName)
+</SOURCE>
+		</CODE>
+	</INIT-FUNCTION>
+	<FINALIZE-FUNCTION xsi:type="pyFunctionII">
+		<NAME xsi:type="string">Finalize</NAME>
+		<PARAMETER-NAMES/>
+		<CODE xsi:type="pyCode">
+			<SOURCE xsi:type="string">#Funktionskopf generiert, nicht editieren!
+def Finalize(dataContainer, parameters, report):
+    # close the store
+    dataContainer.ms.Close()
+</SOURCE>
+		</CODE>
+	</FINALIZE-FUNCTION>
+	<FUNCTIONS>
+		<ELEMENT xsi:type="pyEventFunctionII">
+			<NAME xsi:type="string">Next</NAME>
+			<PARAMETER-NAMES/>
+			<CODE xsi:type="pyCode">
+				<SOURCE xsi:type="string">#Funktionskopf generiert, nicht editieren!
+def Next(event, hold, dataContainer, parameters, report):
+    # Add all signal values
+    eventTime = event.GetTime()
+    for signalName in event.GetSignals():
+        dataContainer.ms.AddSignalValue(eventTime,
+                                        dataContainer.GetGenericSignalName(signalName),
+                                        event.GetValue(signalName))
+</SOURCE>
+			</CODE>
+			<SIGNAL-NAMES>
+				<ELEMENT xsi:type="string">Signal_0</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_1</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_2</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_3</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_4</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_5</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_6</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_7</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_8</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_9</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_10</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_11</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_12</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_13</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_14</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_15</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_16</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_17</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_18</ELEMENT>
+				<ELEMENT xsi:type="string">Signal_19</ELEMENT>
+			</SIGNAL-NAMES>
+		</ELEMENT>
+	</FUNCTIONS>
+</TRACE-STEP-PROTOTYPE>

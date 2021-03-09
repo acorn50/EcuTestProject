@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="8.1.0.91368-BETA" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Type</NAME>
+				<VALUE xsi:type="string">MANUAL</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">summary</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="pyObject">
+				<OBJECT xsi:type="string">[]</OBJECT>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">summaryLength</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">loopCounter</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">testerName</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="string"/>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="1" id="141" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+			<COMMENT-EXPRESSION xsi:type="binaryOpBaseExpression">
+				<NAME xsi:type="string">BINARY_MODULO</NAME>
+				<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">Summary (tested by &quot;%s&quot;)</VALUE>
+				</FIRST-COMPONENT>
+				<SECOND-COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">testerName</NAME>
+				</SECOND-COMPONENT>
+			</COMMENT-EXPRESSION>
+		</TESTSTEP>
+		<TESTSTEP id="148" name="TsIfThenElse" xsi:type="utility-3609c41e-4fef-11dc-899a-0013728784ee">
+			<CONDITION xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">isinstance</NAME>
+				</COMPONENT>
+				<ARGUMENTS>
+					<ARGUMENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">summary</NAME>
+					</ARGUMENT>
+					<ARGUMENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">list</NAME>
+					</ARGUMENT>
+				</ARGUMENTS>
+			</CONDITION>
+			<THEN id="146" xsi:type="ifThenElseNode">
+				<TESTSTEP format-rev="3" id="144" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+					<VARIABLE-REFS>
+						<VARIABLE-NAME dkey="default">
+							<DVALUE xsi:type="string">summaryLength</DVALUE>
+						</VARIABLE-NAME>
+					</VARIABLE-REFS>
+					<FORMULA xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">len</NAME>
+						</COMPONENT>
+						<ARGUMENTS>
+							<ARGUMENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">summary</NAME>
+							</ARGUMENT>
+						</ARGUMENTS>
+					</FORMULA>
+				</TESTSTEP>
+				<TESTSTEP id="161" name="TsLoop" xsi:type="utility-3da58cf0-4fef-11dc-be56-0013728784ee">
+					<TESTSTEP format-rev="1" id="163" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+						<COMMENT-EXPRESSION xsi:type="binaryOpBaseExpression">
+							<NAME xsi:type="string">BINARY_SUBSCR</NAME>
+							<FIRST-COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">summary</NAME>
+							</FIRST-COMPONENT>
+							<SECOND-COMPONENT xsi:type="binaryOpBaseExpression">
+								<NAME xsi:type="string">BINARY_SUBTRACT</NAME>
+								<FIRST-COMPONENT xsi:type="varBaseExpression">
+									<NAME xsi:type="string">loopCounter</NAME>
+								</FIRST-COMPONENT>
+								<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="integer">1</VALUE>
+								</SECOND-COMPONENT>
+							</SECOND-COMPONENT>
+						</COMMENT-EXPRESSION>
+					</TESTSTEP>
+					<VARIABLE-REFS>
+						<VARIABLE-NAME dkey="default">
+							<DVALUE xsi:type="string">loopCounter</DVALUE>
+						</VARIABLE-NAME>
+					</VARIABLE-REFS>
+					<LOOP-COUNT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">summaryLength</NAME>
+					</LOOP-COUNT>
+				</TESTSTEP>
+			</THEN>
+			<ELSE id="147" xsi:type="ifThenElseNode"/>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

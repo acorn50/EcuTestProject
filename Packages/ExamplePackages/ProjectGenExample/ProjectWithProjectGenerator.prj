@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PROJECT format-rev="7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<NAME xsi:type="string">Projekt</NAME>
+	<ENABLED xsi:type="boolean">True</ENABLED>
+	<REPORTING xsi:type="boolean">True</REPORTING>
+	<COMPONENTS>
+		<COMPONENT xsi:type="projectGeneratorCycleSet">
+			<NAME xsi:type="string">ProjectGenerator-Example</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<COMPONENTS/>
+			<PROJECT-GENERATOR xsi:type="projectGenerator-64ada5a1-d42f-11e3-9cdf-080027005456"/>
+		</COMPONENT>
+	</COMPONENTS>
+</PROJECT>

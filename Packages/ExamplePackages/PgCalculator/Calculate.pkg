@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="8.1.0.91368-BETA" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Type</NAME>
+				<VALUE xsi:type="string">MANUAL</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">firstNumber</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">secondNumber</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" out="true" xsi:type="variable">
+			<NAME xsi:type="string">result</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">summary</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="pyObject">
+				<OBJECT xsi:type="string">None</OBJECT>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">testerName</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="string"/>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP id="116" name="TsIfThenElse" xsi:type="utility-3609c41e-4fef-11dc-899a-0013728784ee">
+			<CONDITION xsi:type="compareOpBaseExpression">
+				<NAME xsi:type="string">is</NAME>
+				<FIRST-COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">summary</NAME>
+				</FIRST-COMPONENT>
+				<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression"/>
+			</CONDITION>
+			<THEN id="114" xsi:type="ifThenElseNode">
+				<TESTSTEP format-rev="2" id="111" xsi:type="tsPackage">
+					<VARIABLE-REFS>
+						<VARIABLE-NAME dkey="result">
+							<DVALUE xsi:type="string">result</DVALUE>
+						</VARIABLE-NAME>
+					</VARIABLE-REFS>
+					<PACKAGE-REFERENCE xsi:type="varBaseExpression">
+						<NAME xsi:type="string">ARITHMETIC</NAME>
+					</PACKAGE-REFERENCE>
+					<PARAM-ASSIGNMENTS>
+						<ASSIGNMENT dkey="firstNumber">
+							<DVALUE xsi:type="varBaseExpression">
+								<NAME xsi:type="string">firstNumber</NAME>
+							</DVALUE>
+						</ASSIGNMENT>
+						<ASSIGNMENT dkey="secondNumber">
+							<DVALUE xsi:type="varBaseExpression">
+								<NAME xsi:type="string">secondNumber</NAME>
+							</DVALUE>
+						</ASSIGNMENT>
+					</PARAM-ASSIGNMENTS>
+				</TESTSTEP>
+			</THEN>
+			<ELSE id="115" xsi:type="ifThenElseNode">
+				<TESTSTEP format-rev="2" id="182" xsi:type="tsPackage">
+					<PACKAGE-REFERENCE format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">Summary.pkg</VALUE>
+					</PACKAGE-REFERENCE>
+					<PARAM-ASSIGNMENTS>
+						<ASSIGNMENT dkey="summary">
+							<DVALUE xsi:type="varBaseExpression">
+								<NAME xsi:type="string">summary</NAME>
+							</DVALUE>
+						</ASSIGNMENT>
+						<ASSIGNMENT dkey="testerName">
+							<DVALUE xsi:type="varBaseExpression">
+								<NAME xsi:type="string">testerName</NAME>
+							</DVALUE>
+						</ASSIGNMENT>
+					</PARAM-ASSIGNMENTS>
+				</TESTSTEP>
+			</ELSE>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

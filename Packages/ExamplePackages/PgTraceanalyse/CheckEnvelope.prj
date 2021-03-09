@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PROJECT format-rev="7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<NAME xsi:type="string">Projekt</NAME>
+	<ENABLED xsi:type="boolean">True</ENABLED>
+	<REPORTING xsi:type="boolean">True</REPORTING>
+	<COMPONENTS>
+		<COMPONENT format-rev="4" xsi:type="packageTest">
+			<NAME xsi:type="string">CheckSignalInEnvelope</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<COMPONENTS>
+				<COMPONENT xsi:type="variationSet">
+					<NAME xsi:type="string">CheckEnvelope</NAME>
+					<ENABLED xsi:type="boolean">True</ENABLED>
+					<REPORTING xsi:type="boolean">True</REPORTING>
+					<COMPONENTS/>
+					<PARAM-GENERATOR xsi:type="paramGenerator-1c56f74f-e563-11e1-a7d1-001a6bfb0b78">
+						<DIRECTORY xsi:type="string">..\..\ExampleTraces\ParameterGenerator\ActualRecordings</DIRECTORY>
+					</PARAM-GENERATOR>
+				</COMPONENT>
+			</COMPONENTS>
+			<PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+				<PACKAGE-PATH xsi:type="string">CheckSignalInEnvelope.pkg</PACKAGE-PATH>
+			</PACKAGE-REF>
+		</COMPONENT>
+	</COMPONENTS>
+</PROJECT>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2020.1.95258" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Type</NAME>
+				<VALUE xsi:type="string">MANUAL</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">actual</ID>
+			<XACCESS format-rev="1" xsi:type="xaTraceFileSignal">
+				<SIGNAL-NAME xsi:type="string">IST</SIGNAL-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">reference</ID>
+			<XACCESS format-rev="1" xsi:type="xaTraceFileSignal">
+				<SIGNAL-NAME xsi:type="string">SOLL</SIGNAL-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TRACE-RECORDING format-rev="2" xsi:type="recordingManager">
+		<SIGNAL-GROUPS>
+			<ELEMENT format-rev="2" xsi:type="signalGroup">
+				<NAME xsi:type="string">Signal group 1</NAME>
+				<DESCRIPTION xsi:type="string">...</DESCRIPTION>
+				<SIGNALS>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">actual</MAPPING-REF>
+					</ELEMENT>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">reference</MAPPING-REF>
+					</ELEMENT>
+				</SIGNALS>
+			</ELEMENT>
+		</SIGNAL-GROUPS>
+		<RECORDING-GROUP>
+			<ELEMENT format-rev="3" xsi:type="recordingGroup">
+				<NAME xsi:type="string">default 1</NAME>
+				<UUID xsi:type="string">1b4134b01e5011e0a5330024d7351970</UUID>
+				<RECORDINGS>
+					<ELEMENT format-rev="2" xsi:type="recordingInfo">
+						<RECORDING-TYPE xsi:type="string">CSV</RECORDING-TYPE>
+						<PATHS>
+							<PATH xsi:type="fileReference">
+								<PATH xsi:type="string">ExampleTraces\EnvelopeExample\Envelope_SampleTraceFile.csv</PATH>
+								<PATH-TYPE xsi:type="string">relTraces</PATH-TYPE>
+							</PATH>
+						</PATHS>
+						<RECORDING-NAME xsi:type="string">default</RECORDING-NAME>
+						<FORMAT-DETAILS xsi:type="string">columnSeparator: ';', decimalSeparator: ',', thousandSeparator: '', headLineNumber: '0', timeColumn: 'xAxis'</FORMAT-DETAILS>
+					</ELEMENT>
+				</RECORDINGS>
+				<SIGNAL-GROUP-REF>Signal group 1</SIGNAL-GROUP-REF>
+			</ELEMENT>
+		</RECORDING-GROUP>
+		<SYNCHRONISATION-CONFIG xsi:type="syncConfig"/>
+	</TRACE-RECORDING>
+	<TRACE-ANALYSES format-rev="1" xsi:type="traceAnalyses">
+		<TRACE-ANALYSIS format-rev="3" uuid="15a7ae611a8811e0b9380024d7351970" xsi:type="traceAnalysis">
+			<NAME xsi:type="string">Traceanalyse 1</NAME>
+			<ANALYSISITEM format-rev="1" uuid="48226a9076da11e3b80624fd52353e3b" xsi:type="episode">
+				<NAME xsi:type="string">Episode01</NAME>
+				<ANALYSISITEM format-rev="2" poolRev="6" uuid="8b1d5e8976db11e39b2224fd52353e3b" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">CalculateEnvelope</NAME>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="LowerBound">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">LowerBound</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">ReferenceSignal</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="UpperBound">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">UpperBound</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="deltaT">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.4</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="emitEverySample">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="minusDeltaY">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">25.0</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="plusDeltaY">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">25.0</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">10</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.5</MIN-DELTA>
+					</REPORT-CONFIG>
+					<PROTOTYPE-ID xsi:type="string">Calculate\CalculateEnvelope</PROTOTYPE-ID>
+				</ANALYSISITEM>
+			</ANALYSISITEM>
+			<ANALYSISITEM format-rev="1" uuid="4824db9476da11e382f324fd52353e3b" xsi:type="episode">
+				<NAME xsi:type="string">Episode02</NAME>
+				<ANALYSISITEM format-rev="2" poolRev="6" uuid="7bc36eec1e4f11e0a4dd0024d7351970" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">PyPlotSignals</NAME>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="Signal_0">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">SignalToCheck</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_1">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">UpperBound</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_10">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_11">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_12">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_13">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_14">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_15">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_16">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_17">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_18">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_19">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_2">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">LowerBound</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_20">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_3">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_4">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_5">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_6">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_7">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_8">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_9">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="connectActualSignalValuesLinearly">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="markActualSignalValues">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="plotOnlyActualSignalValues">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="plotScaleFactor">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="subPlots">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="xmax">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="xmin">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="ymax">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="ymin">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">10</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.5</MIN-DELTA>
+					</REPORT-CONFIG>
+					<PROTOTYPE-ID xsi:type="string">Display\PyPlotSignals</PROTOTYPE-ID>
+				</ANALYSISITEM>
+				<ANALYSISITEM format-rev="2" poolRev="6" uuid="d082cccf1f2c11e08b070024d7351970" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">CheckSignalInEnvelope</NAME>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="deviation">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">Deviation</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="max">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">UpperBound</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="min">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">LowerBound</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="signalToCheck">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">SignalToCheck</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="startTime">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">1.0</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="tolerance">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">10</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.5</MIN-DELTA>
+					</REPORT-CONFIG>
+					<PROTOTYPE-ID xsi:type="string">Check\CheckSignalInEnvelope</PROTOTYPE-ID>
+				</ANALYSISITEM>
+				<ANALYSISITEM format-rev="2" poolRev="6" uuid="8df861f11e4f11e087aa0024d7351970" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">PyPlotSignals</NAME>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="Signal_0">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">Deviation</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_1">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_10">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_11">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_12">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_13">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_14">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_15">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_16">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_17">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_18">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_19">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_2">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_20">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_3">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_4">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_5">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_6">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_7">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_8">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_9">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="connectActualSignalValuesLinearly">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="markActualSignalValues">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="boolean">True</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="plotOnlyActualSignalValues">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="plotScaleFactor">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="subPlots">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="xmax">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="xmin">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="ymax">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="ymin">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">10</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.5</MIN-DELTA>
+					</REPORT-CONFIG>
+					<PROTOTYPE-ID xsi:type="string">Display\PyPlotSignals</PROTOTYPE-ID>
+				</ANALYSISITEM>
+			</ANALYSISITEM>
+			<VIRTUAL-SIGNALS-MANAGER xsi:type="virtualSignalsManager">
+				<VIRTUAL-SIGNALS>
+					<VIRTUAL-SIGNAL uuid="ebc1215e1e4e11e096080024d7351970" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">ReferenceSignal</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">reference</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">1b4134b01e5011e0a5330024d7351970</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="f98e74a11e4e11e0a6360024d7351970" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">SignalToCheck</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">actual</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">1b4134b01e5011e0a5330024d7351970</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="c87fac9e76dc11e39b7924fd52353e3b" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">UpperBound</NAME>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="c928bdde76dc11e3800724fd52353e3b" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">LowerBound</NAME>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="43a51b9e76e111e392c124fd52353e3b" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">Deviation</NAME>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+				</VIRTUAL-SIGNALS>
+			</VIRTUAL-SIGNALS-MANAGER>
+		</TRACE-ANALYSIS>
+	</TRACE-ANALYSES>
+</PACKAGE>

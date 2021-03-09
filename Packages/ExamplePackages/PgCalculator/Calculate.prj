@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PROJECT format-rev="7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <NAME xsi:type="string">Projekt</NAME>
+        <ENABLED xsi:type="boolean">True</ENABLED>
+        <REPORTING xsi:type="boolean">True</REPORTING>
+        <COMPONENTS>
+                <COMPONENT format-rev="4" xsi:type="packageTest">
+                        <NAME xsi:type="string">Calculate</NAME>
+                        <ENABLED xsi:type="boolean">True</ENABLED>
+                        <REPORTING xsi:type="boolean">True</REPORTING>
+                        <COMPONENTS>
+                                <COMPONENT xsi:type="variationSet">
+                                        <NAME xsi:type="string">Berechnungsgenerator</NAME>
+                                        <ENABLED xsi:type="boolean">True</ENABLED>
+                                        <REPORTING xsi:type="boolean">True</REPORTING>
+                                        <COMPONENTS/>
+                                        <PARAM-GENERATOR xsi:type="paramGenerator-56fe8f8f-e11d-11df-a48c-12386bddbbec"/>
+                                </COMPONENT>
+                        </COMPONENTS>
+                        <PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+                                <PACKAGE-PATH xsi:type="string">Calculate.pkg</PACKAGE-PATH>
+                        </PACKAGE-REF>
+                </COMPONENT>
+        </COMPONENTS>
+</PROJECT>

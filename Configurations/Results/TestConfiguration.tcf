@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIGURATION format-rev="4" prog-version="5.0.0" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test configuration.xsd">
+	<COMMON xsi:type="commonData">
+		<HOST xsi:type="string">TT-DDm62</HOST>
+		<QUERY-TESTER xsi:type="integer">2</QUERY-TESTER>
+	</COMMON>
+	<REPORT format-rev="3" xsi:type="reportData">
+		<REPORT-FORMATES>
+			<ELEMENT format-rev="1" xsi:type="reportFormat">
+				<FORMAT-NAME xsi:type="string">HTML complete, separate package files</FORMAT-NAME>
+				<HANDLER-NAME xsi:type="string">HTML</HANDLER-NAME>
+				<AUTO-GENERATE xsi:type="boolean">True</AUTO-GENERATE>
+				<FILTERS xsi:type="apiFilter"/>
+			</ELEMENT>
+		</REPORT-FORMATES>
+	</REPORT>
+	<ERROR-HANDLING xsi:type="errorHandling"/>
+	<BUS-ACCESS format-rev="1" xsi:type="busAccessData">
+		<DATA dkey="A-CAN">
+			<DVALUE xsi:type="busData">
+				<BUS-ACCESS-PORT-ACTIVENODE xsi:type="string">BUS01</BUS-ACCESS-PORT-ACTIVENODE>
+				<BUS-ACCESS-PORT-SIMULATION xsi:type="string">BUS01</BUS-ACCESS-PORT-SIMULATION>
+				<BUS-ACCESS-PORT-MONITORING xsi:type="string">BUS01</BUS-ACCESS-PORT-MONITORING>
+				<DATABASE xsi:type="string">BUS\powertrain.DBC</DATABASE>
+				<CHANNEL xsi:type="string"/>
+				<BUS-POSITION xsi:type="integer">1</BUS-POSITION>
+			</DVALUE>
+		</DATA>
+	</BUS-ACCESS>
+</CONFIGURATION>

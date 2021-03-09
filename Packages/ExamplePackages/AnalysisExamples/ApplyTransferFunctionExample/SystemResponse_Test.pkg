@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="8.1.0.91368-BETA" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Type</NAME>
+				<VALUE xsi:type="string">MANUAL</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string">The standard trace step template 'ApplyTransferFunction' can be used to test the correct response of a system to an input signal. This can be of particular interest for testing controllers where a direct comparison of reference signal and measured system response is not feasible. The comparison with a modelled system response formed from the input signal works better here.
+
+This example demonstrates how to test whether the system behavior is within a certain tolerance. In the first episode, the system response is directly compared to the original system stimulation, which is surrounded by a tolerance envelope with lower and upper bounds. In the second episode, a signal model is formed from the input signal with optimal system parameters to calculate the tolerance envelope. By using the approximated system model, the tolerance hose can be chosen much narrower without its bounds being violated by the system response.</DESCRIPTION>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">SystemInput</ID>
+			<XACCESS format-rev="1" xsi:type="xaTraceFileSignal">
+				<SIGNAL-NAME xsi:type="string">SystemInput</SIGNAL-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">SystemResponse</ID>
+			<XACCESS format-rev="1" xsi:type="xaTraceFileSignal">
+				<SIGNAL-NAME xsi:type="string">SystemResponse</SIGNAL-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TRACE-RECORDING format-rev="1" xsi:type="recordingManager">
+		<SIGNAL-GROUPS>
+			<ELEMENT format-rev="2" xsi:type="signalGroup">
+				<NAME xsi:type="string">Stimulation.sti</NAME>
+				<SIGNALS>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">SystemInput</MAPPING-REF>
+					</ELEMENT>
+				</SIGNALS>
+			</ELEMENT>
+			<ELEMENT format-rev="2" xsi:type="signalGroup">
+				<NAME xsi:type="string">default</NAME>
+				<SIGNALS>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">SystemResponse</MAPPING-REF>
+					</ELEMENT>
+				</SIGNALS>
+			</ELEMENT>
+		</SIGNAL-GROUPS>
+		<RECORDING-GROUP>
+			<ELEMENT format-rev="2" xsi:type="recordingGroup">
+				<NAME xsi:type="string">Recording group for Stimulation.sti</NAME>
+				<UUID xsi:type="string">d123a94a7df011e99b4afc7774225dae</UUID>
+				<RECORDINGS>
+					<ELEMENT format-rev="2" xsi:type="recordingInfo">
+						<RECORDING-TYPE xsi:type="string">STI</RECORDING-TYPE>
+						<PATHS>
+							<PATH xsi:type="fileReference">
+								<PATH xsi:type="string">ExampleTraces\ApplyTransferFunction\Stimulation.sti</PATH>
+								<PATH-TYPE xsi:type="string">relTraces</PATH-TYPE>
+							</PATH>
+						</PATHS>
+						<RECORDING-NAME xsi:type="string">Stimulation.sti</RECORDING-NAME>
+						<FORMAT-DETAILS xsi:type="string">100.0</FORMAT-DETAILS>
+					</ELEMENT>
+				</RECORDINGS>
+				<SIGNAL-GROUP-REF>Stimulation.sti</SIGNAL-GROUP-REF>
+			</ELEMENT>
+			<ELEMENT format-rev="2" xsi:type="recordingGroup">
+				<NAME xsi:type="string">Recording group for default</NAME>
+				<UUID xsi:type="string">04db1ff67df111e9980bfc7774225dae</UUID>
+				<RECORDINGS>
+					<ELEMENT format-rev="2" xsi:type="recordingInfo">
+						<RECORDING-TYPE xsi:type="string">CSV</RECORDING-TYPE>
+						<PATHS>
+							<PATH xsi:type="fileReference">
+								<PATH xsi:type="string">ExampleTraces\ApplyTransferFunction\Testsignal.csv</PATH>
+								<PATH-TYPE xsi:type="string">relTraces</PATH-TYPE>
+							</PATH>
+						</PATHS>
+						<RECORDING-NAME xsi:type="string">default</RECORDING-NAME>
+						<FORMAT-DETAILS xsi:type="string">columnSeparator: ';', decimalSeparator: '.', thousandSeparator: ',', headLineNumber: '0', timeColumn: '0'</FORMAT-DETAILS>
+					</ELEMENT>
+				</RECORDINGS>
+				<SIGNAL-GROUP-REF>default</SIGNAL-GROUP-REF>
+			</ELEMENT>
+		</RECORDING-GROUP>
+		<SYNCHRONISATION-CONFIG xsi:type="syncConfig"/>
+		<TRACE-MERGE-FILEPATH format-rev="1" xsi:type="valueBaseExpression">
+			<VALUE xsi:type="string"/>
+		</TRACE-MERGE-FILEPATH>
+	</TRACE-RECORDING>
+	<TRACE-ANALYSES format-rev="1" xsi:type="traceAnalyses">
+		<TRACE-ANALYSIS format-rev="3" uuid="9b5ad2927acd11e99428fc7774225dae" xsi:type="traceAnalysis">
+			<NAME xsi:type="string">Traceanalyse 1</NAME>
+			<DESCRIPTION xsi:type="string">The standard trace step template 'ApplyTransferFunction' can be used to test the correct response of a system to an input signal. This can be of particular interest for testing controllers where a direct comparison of reference signal and measured system response is not feasible. The comparison with a modelled system response formed from the input signal works better here.
+
+This example demonstrates how to test whether the system behavior is within a certain tolerance. In the first episode, the system response is directly compared to the original system stimulation, which is surrounded by a tolerance envelope with lower and upper bounds. In the second episode, a signal model is formed from the input signal with optimal system parameters to calculate the tolerance envelope. By using the approximated system model, the tolerance hose can be chosen much narrower without its bounds being violated by the system response.</DESCRIPTION>
+			<ANALYSISITEM format-rev="1" uuid="1c5772f67b9911e9a199fc7774225dae" xsi:type="episode">
+				<NAME xsi:type="string">System response test using the original system stimulation</NAME>
+				<DESCRIPTION xsi:type="string">Use the signal model with optimized parameters instead of the original signal for the actual test.</DESCRIPTION>
+				<ANALYSISITEM format-rev="2" poolRev="5" uuid="04946f467e0211e99024fc7774225dae" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">CalculateEnvelope</NAME>
+					<ANALYSISITEM format-rev="3" uuid="35c6470a7e0211e98519fc7774225dae" xsi:type="plotItem">
+						<NAME xsi:type="string">Plot</NAME>
+						<SUB-PLOTS>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES>
+									<ENTITY format-rev="1" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">LowerBound</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">Signal</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">UpperBound</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">SystemResponse</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+								</ENTITIES>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">separate</TYPE>
+								<ENTITIES/>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES/>
+								<AXES/>
+							</SUB-PLOT>
+						</SUB-PLOTS>
+						<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NONE</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-OVERVIEW>
+						<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-PARENT-CONTEXT>
+						<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-DETAILS>
+						<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+						<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+					</ANALYSISITEM>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="LowerBound">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">LowerBound</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">SystemInput</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="UpperBound">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">UpperBound</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="deltaT">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">1.0</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="emitEverySample">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="minusDeltaY">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.6</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="plusDeltaY">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.6</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">100</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.0</MIN-DELTA>
+					</REPORT-CONFIG>
+					<PROTOTYPE-ID xsi:type="string">Calculate\CalculateEnvelope</PROTOTYPE-ID>
+				</ANALYSISITEM>
+				<ANALYSISITEM format-rev="1" uuid="b063e7ca7e0211e98e41fc7774225dae" xsi:type="calculation">
+					<ANALYSISITEM format-rev="3" uuid="aaf76e467e0311e9affafc7774225dae" xsi:type="plotItem">
+						<NAME xsi:type="string">Plot</NAME>
+						<SUB-PLOTS>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES>
+									<ENTITY format-rev="1" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">LowerBound</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">UpperBound</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">SystemResponse</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+								</ENTITIES>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">separate</TYPE>
+								<ENTITIES/>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES/>
+								<AXES/>
+							</SUB-PLOT>
+						</SUB-PLOTS>
+						<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NONE</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-OVERVIEW>
+						<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-PARENT-CONTEXT>
+						<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-DETAILS>
+						<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+						<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+					</ANALYSISITEM>
+					<NAME xsi:type="string">Calculation</NAME>
+					<FORMULA xsi:type="string">BoundControl(SystemResponse, LowerBound, UpperBound)</FORMULA>
+					<EXPECTATION xsi:type="manualExpression">
+						<BASE-EXPRESSION xsi:type="varBaseExpression">
+							<NAME xsi:type="string">value</NAME>
+						</BASE-EXPRESSION>
+					</EXPECTATION>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">100</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.0</MIN-DELTA>
+					</REPORT-CONFIG>
+				</ANALYSISITEM>
+			</ANALYSISITEM>
+			<ANALYSISITEM format-rev="1" uuid="90f4924c808911e9b69ae4b97a806ceb" xsi:type="episode">
+				<NAME xsi:type="string">System response test using a calculated system model</NAME>
+				<DESCRIPTION xsi:type="string">Use the signal model with optimized parameters instead of the original signal for the actual test.</DESCRIPTION>
+				<ANALYSISITEM format-rev="2" poolRev="5" uuid="90f4924d808911e98911e4b97a806ceb" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">ApplyTransferFunction</NAME>
+					<ANALYSISITEM format-rev="3" uuid="90f4924e808911e9b4efe4b97a806ceb" xsi:type="plotItem">
+						<NAME xsi:type="string">Plot</NAME>
+						<SUB-PLOTS>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES>
+									<ENTITY format-rev="1" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">u</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">SystemResponse</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">y</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+										<COLOR xsi:type="string">#FF0000</COLOR>
+										<LINE-WIDTH xsi:type="float">2.0</LINE-WIDTH>
+									</ENTITY>
+								</ENTITIES>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">separate</TYPE>
+								<ENTITIES/>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES/>
+								<AXES/>
+							</SUB-PLOT>
+						</SUB-PLOTS>
+						<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NONE</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-OVERVIEW>
+						<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-PARENT-CONTEXT>
+						<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-DETAILS>
+						<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+						<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+					</ANALYSISITEM>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="u">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">SystemInput</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="y">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">SystemModel</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="FunctionParameters">
+								<DVALUE xsi:type="dictBaseExpression">
+									<EXPRESSION-DICT>
+										<ITEM xsi:type="expressionDictItem">
+											<KEY format-rev="1" xsi:type="valueBaseExpression">
+												<VALUE xsi:type="string">K</VALUE>
+											</KEY>
+											<VALUE format-rev="1" xsi:type="valueBaseExpression">
+												<VALUE xsi:type="float">1.31</VALUE>
+											</VALUE>
+										</ITEM>
+										<ITEM xsi:type="expressionDictItem">
+											<KEY format-rev="1" xsi:type="valueBaseExpression">
+												<VALUE xsi:type="string">T</VALUE>
+											</KEY>
+											<VALUE format-rev="1" xsi:type="valueBaseExpression">
+												<VALUE xsi:type="float">1.80</VALUE>
+											</VALUE>
+										</ITEM>
+									</EXPRESSION-DICT>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="LimitOutputSlope">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="boolean">False</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="MaximumOutputSlope">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="RegisterOfFunctions">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">{&quot;P&quot;: {&quot;K&quot;: &quot;None&quot;}, &quot;I&quot;: {&quot;T&quot;: &quot;None&quot;}, &quot;D&quot;: {&quot;T&quot;: &quot;None&quot;}, &quot;PD1&quot;: {&quot;K&quot;: &quot;None&quot;, &quot;T&quot;: &quot;None&quot;}, &quot;PT1&quot;: {&quot;K&quot;: &quot;1.31&quot;, &quot;T&quot;: &quot;1.80&quot;}, &quot;PT2&quot;: {&quot;K&quot;: &quot;None&quot;, &quot;D&quot;: &quot;None&quot;, &quot;T&quot;: &quot;None&quot;}}</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="TransferFunction">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">PT1</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">100</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.0</MIN-DELTA>
+					</REPORT-CONFIG>
+					<PROTOTYPE-ID xsi:type="string">Calculate\SignalAnalysis\ApplyTransferFunction</PROTOTYPE-ID>
+				</ANALYSISITEM>
+				<ANALYSISITEM format-rev="2" poolRev="5" uuid="90f4924f808911e9bdb0e4b97a806ceb" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">CalculateEnvelope</NAME>
+					<ANALYSISITEM format-rev="3" uuid="90f49250808911e99e56e4b97a806ceb" xsi:type="plotItem">
+						<NAME xsi:type="string">Plot</NAME>
+						<SUB-PLOTS>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES>
+									<ENTITY format-rev="1" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">LowerBound</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">UpperBound</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">Signal</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+								</ENTITIES>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">separate</TYPE>
+								<ENTITIES/>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES/>
+								<AXES/>
+							</SUB-PLOT>
+						</SUB-PLOTS>
+						<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NONE</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-OVERVIEW>
+						<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-PARENT-CONTEXT>
+						<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-DETAILS>
+						<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+						<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+					</ANALYSISITEM>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="LowerBound">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">LowerBound</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">SystemModel</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="UpperBound">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">UpperBound</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="deltaT">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.5</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="emitEverySample">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="minusDeltaY">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.3</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="plusDeltaY">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.3</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">100</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.0</MIN-DELTA>
+					</REPORT-CONFIG>
+					<PROTOTYPE-ID xsi:type="string">Calculate\CalculateEnvelope</PROTOTYPE-ID>
+				</ANALYSISITEM>
+				<ANALYSISITEM format-rev="1" uuid="90f49251808911e9bd4fe4b97a806ceb" xsi:type="calculation">
+					<ANALYSISITEM format-rev="3" uuid="90f49252808911e9ba6de4b97a806ceb" xsi:type="plotItem">
+						<NAME xsi:type="string">Plot</NAME>
+						<SUB-PLOTS>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES>
+									<ENTITY format-rev="1" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">LowerBound</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">UpperBound</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="1" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">SystemResponse</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+								</ENTITIES>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">separate</TYPE>
+								<ENTITIES/>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES/>
+								<AXES/>
+							</SUB-PLOT>
+						</SUB-PLOTS>
+						<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NONE</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-OVERVIEW>
+						<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-PARENT-CONTEXT>
+						<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-DETAILS>
+						<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+						<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+					</ANALYSISITEM>
+					<FORMULA xsi:type="string">BoundControl(SystemResponse, LowerBound, UpperBound)</FORMULA>
+					<EXPECTATION xsi:type="manualExpression">
+						<BASE-EXPRESSION xsi:type="varBaseExpression">
+							<NAME xsi:type="string">value</NAME>
+						</BASE-EXPRESSION>
+					</EXPECTATION>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">100</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.0</MIN-DELTA>
+					</REPORT-CONFIG>
+				</ANALYSISITEM>
+			</ANALYSISITEM>
+			<VIRTUAL-SIGNALS-MANAGER xsi:type="virtualSignalsManager">
+				<VIRTUAL-SIGNALS>
+					<VIRTUAL-SIGNAL uuid="73da7f887df111e9ae2efc7774225dae" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">SystemInput</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">SystemInput</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">d123a94a7df011e99b4afc7774225dae</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="7e0ce9f07d4411e986dafc7774225dae" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">SystemResponse</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">SystemResponse</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">04db1ff67df111e9980bfc7774225dae</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="a5fddd1e7df111e9ae20fc7774225dae" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">SystemModel</NAME>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="336784407e0211e988fdfc7774225dae" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">LowerBound</NAME>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="336d92e67e0211e99332fc7774225dae" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">UpperBound</NAME>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+				</VIRTUAL-SIGNALS>
+			</VIRTUAL-SIGNALS-MANAGER>
+		</TRACE-ANALYSIS>
+	</TRACE-ANALYSES>
+</PACKAGE>

@@ -1,0 +1,20 @@
+
+
+= 09.03.2021 09:17:22 (UTC +8:00) === ECU-TEST 2020.1.95870 95870 (2020/03/11 16:02:50) (64bit) ===
+
+
+
+2021-03-09 09:17:22.176 2072 ManagedWorker-1 ERROR:
+                        Traceback (most recent call last):
+                          File "tts\core\project\projectStep\PackageGeneratorCycleSet.py", line 241, in Run
+                          File "E:\EcuTestWorkSpace\ProjectGenerators\PackageGenExample\PkgGenDLC.py", line 32, in PreGeneration
+                            self.framesList = self.api.DataBrowser.BrowseBus(self.busName).ListFrames()
+                          File "tts\core\api\dataBrowserApi\DataBrowser.py", line 228, in BrowseBus
+                        tt._Exceptions_.TTError: No TCF loaded containing bus: A-CAN
+2021-03-09 09:17:22.204 2072 ManagedWorker-1 ERROR:
+                        Traceback (most recent call last):
+                          File "tts\core\project\engine\ProjectEngine.py", line 1050, in ExecComponent
+                          File "tts\core\project\projectStep\PackageGeneratorCycleSet.py", line 261, in Run
+                          File "tts\core\project\projectStep\PackageGeneratorCycleSet.py", line 259, in Run
+                        tts.core.project.generator.PackageGeneratorException.PackageGeneratorException: Error in package generator 'DLC check Generator' ("tts\core\api\dataBrowserApi\DataBrowser.py", line 228, in BrowseBus):
+                        No TCF loaded containing bus: A-CAN

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TRACE-STEP-PROTOTYPE uuid="85ab07e67fff11de8b1e001c23431d5f" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="trcpLogic">
+	<DESCRIPTION xsi:type="string">
+		checks that every HIGH value in signal is always sustained for at least MinDewllTime seconds in the trace
+	</DESCRIPTION>
+	<SIGNALS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="85ab07e07fff11dea62f001c23431d5f" xsi:type="signalDescription">
+			<NAME xsi:type="string">
+				Signal
+			</NAME>
+			<EVENT-TYPE xsi:type="string">
+				PHY
+			</EVENT-TYPE>
+		</PARAMETER>
+	</SIGNALS>
+	<PARAMETERS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="85ab07e27fff11dea02e001c23431d5f" xsi:type="parameterDescription">
+			<NAME xsi:type="string">
+				HIGH
+			</NAME>
+			<PARAMETER-TYPE xsi:type="string">
+				FLOAT
+			</PARAMETER-TYPE>
+		</PARAMETER>
+		<PARAMETER uuid="85ab07e47fff11de98e8001c23431d5f" xsi:type="parameterDescription">
+			<NAME xsi:type="string">
+				MinDwellTime
+			</NAME>
+			<PARAMETER-TYPE xsi:type="string">
+				FLOAT
+			</PARAMETER-TYPE>
+		</PARAMETER>
+	</PARAMETERS>
+	<FORMULA xsi:type="string">
+		(Change(Signal) and &quot;Signal==HIGH&quot;) 
+-&gt;G[0,MinDwellTime)](&quot;Signal==HIGH&quot;)
+	</FORMULA>
+</TRACE-STEP-PROTOTYPE>

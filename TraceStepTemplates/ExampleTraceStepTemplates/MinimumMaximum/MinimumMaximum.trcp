@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TRACE-STEP-PROTOTYPE format-rev="1" uuid="f882a0300d0611e095870024d7351970" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="trcpEventPythonII">
+	<DESCRIPTION xsi:type="string">Calculates the minimal and maximal values for the signal over the entire trace. Only applicable for signal values of numeric types.</DESCRIPTION>
+	<SIGNALS xsi:type="trcpParameterDescriptionList">
+		<PARAMETER uuid="4f256da10d0711e0b6550024d7351970" xsi:type="signalDescription">
+			<NAME xsi:type="string">Signal</NAME>
+			<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+		</PARAMETER>
+	</SIGNALS>
+	<PARAMETERS xsi:type="trcpParameterDescriptionList"/>
+	<INIT-FUNCTION xsi:type="pyFunctionII">
+		<NAME xsi:type="string">Init</NAME>
+		<PARAMETER-NAMES/>
+		<CODE xsi:type="pyCode">
+			<SOURCE xsi:type="string">#Funktionskopf generiert, nicht editieren!
+def Init(dataContainer, parameters, report):
+    dataContainer.min = float('inf') # min(x, float('inf')) yields x
+    dataContainer.minTime = None
+    dataContainer.max = -float('inf') # max(x, -float('inf')) yields x
+    dataContainer.maxTime = None
+</SOURCE>
+		</CODE>
+	</INIT-FUNCTION>
+	<FINALIZE-FUNCTION xsi:type="pyFunctionII">
+		<NAME xsi:type="string">Finalize</NAME>
+		<PARAMETER-NAMES/>
+		<CODE xsi:type="pyCode">
+			<SOURCE xsi:type="string">#Funktionskopf generiert, nicht editieren!
+def Finalize(dataContainer, parameters, report):
+    if dataContainer.minTime is None:
+        report.SetResultText(&quot;No signal data!&quot;)
+    else:
+        report.SetResultText(&quot;Minimum:   %s\nMaximum:   %s&quot; % (dataContainer.min, dataContainer.max))
+        if dataContainer.minTime &lt;= dataContainer.maxTime:
+            report.Spot(dataContainer.minTime, &quot;Minimum&quot;)
+            report.Spot(dataContainer.maxTime, &quot;Maximum&quot;)
+        else:
+            report.Spot(dataContainer.maxTime, &quot;Maximum&quot;)
+            report.Spot(dataContainer.minTime, &quot;Minimum&quot;)
+</SOURCE>
+		</CODE>
+	</FINALIZE-FUNCTION>
+	<FUNCTIONS>
+		<ELEMENT xsi:type="pyEventFunctionII">
+			<NAME xsi:type="string">Next</NAME>
+			<PARAMETER-NAMES/>
+			<CODE xsi:type="pyCode">
+				<SOURCE xsi:type="string">#Funktionskopf generiert, nicht editieren!
+def Next(event, hold, dataContainer, parameters, report):
+    value = event.GetValue(&quot;Signal&quot;)
+    if value &lt; dataContainer.min:
+        dataContainer.min = value
+        dataContainer.minTime = event.GetTime()
+    if value &gt; dataContainer.max:
+        dataContainer.max = value
+        dataContainer.maxTime = event.GetTime()
+</SOURCE>
+			</CODE>
+			<SIGNAL-NAMES>
+				<ELEMENT xsi:type="string">Signal</ELEMENT>
+			</SIGNAL-NAMES>
+		</ELEMENT>
+	</FUNCTIONS>
+</TRACE-STEP-PROTOTYPE>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PROJECT format-rev="10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<NAME xsi:type="string">Projekt</NAME>
+	<ENABLED xsi:type="boolean">True</ENABLED>
+	<REPORTING xsi:type="boolean">True</REPORTING>
+	<ID xsi:type="string">cd92bb0c5ef611eab7c7e4b97a72f2be</ID>
+	<COMPONENTS>
+		<COMPONENT format-rev="1" xsi:type="packageGeneratorCycleSet">
+			<NAME xsi:type="string">DLC check Generator</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<ID xsi:type="string">cd92bb0a5ef611eab105e4b97a72f2be</ID>
+			<COMPONENTS/>
+			<PACKAGE-GENERATOR xsi:type="packageGenerator-ef3e2740-6e91-11e6-a3ae-fcf8aeb9b2bf">
+				<BUS-NAME xsi:type="string">A-CAN</BUS-NAME>
+			</PACKAGE-GENERATOR>
+		</COMPONENT>
+	</COMPONENTS>
+	<ABORT-ON-SUBPROJECT-ABORT xsi:type="boolean">True</ABORT-ON-SUBPROJECT-ABORT>
+	<DESCRIPTION xsi:type="string">Example for a package generator.
+This example is not standalone!
+
+Requirements:
+- a started test configuration that contains a bus system
+- the name of the bus system must be the same as given to the package generator (step 'DLC check Generator')</DESCRIPTION>
+</PROJECT>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PROJECT format-rev="10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<NAME xsi:type="string">Projekt</NAME>
+	<ENABLED xsi:type="boolean">True</ENABLED>
+	<REPORTING xsi:type="boolean">True</REPORTING>
+	<ID xsi:type="string">277607477e0611e988f0fc7774225dae</ID>
+	<COMPONENTS>
+		<COMPONENT format-rev="10" xsi:type="subproject">
+			<NAME xsi:type="string">ApplyTransferFunctionExample</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<ID xsi:type="string">50cc9568808711e98bace4b97a806ceb</ID>
+			<COMPONENTS>
+				<COMPONENT format-rev="1" xsi:type="projectCall">
+					<NAME xsi:type="string">ApplyTransferFunction</NAME>
+					<ENABLED xsi:type="boolean">False</ENABLED>
+					<REPORTING xsi:type="boolean">True</REPORTING>
+					<ID xsi:type="string">46ee37ec7e0611e9b315fc7774225dae</ID>
+					<PROJECT-REF style="relative" xsi:type="projectRef">
+						<PROJECT-PATH xsi:type="string">ApplyTransferFunctionExample\ApplyTransferFunction.prj</PROJECT-PATH>
+					</PROJECT-REF>
+				</COMPONENT>
+			</COMPONENTS>
+		</COMPONENT>
+		<COMPONENT format-rev="10" xsi:type="subproject">
+			<NAME xsi:type="string">PlotExamples</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<ID xsi:type="string">2773b5507e0611e98fc3fc7774225dae</ID>
+			<COMPONENTS>
+				<COMPONENT format-rev="5" xsi:type="packageTest">
+					<NAME xsi:type="string">TestDrives_PlotAll</NAME>
+					<ENABLED xsi:type="boolean">True</ENABLED>
+					<REPORTING xsi:type="boolean">True</REPORTING>
+					<ID xsi:type="string">2773b54f7e0611e9a128fc7774225dae</ID>
+					<COMPONENTS/>
+					<PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+						<PACKAGE-PATH xsi:type="string">PlotExamples\TestDrives_PlotAll.pkg</PACKAGE-PATH>
+					</PACKAGE-REF>
+				</COMPONENT>
+			</COMPONENTS>
+		</COMPONENT>
+		<COMPONENT format-rev="10" xsi:type="subproject">
+			<NAME xsi:type="string">ReferencingEpisodeExample</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<ID xsi:type="string">277607417e0611e9ae06fc7774225dae</ID>
+			<COMPONENTS>
+				<COMPONENT format-rev="5" xsi:type="packageTest">
+					<NAME xsi:type="string">MasterAnalysis</NAME>
+					<ENABLED xsi:type="boolean">True</ENABLED>
+					<REPORTING xsi:type="boolean">True</REPORTING>
+					<ID xsi:type="string">2773b5537e0611e98489fc7774225dae</ID>
+					<COMPONENTS/>
+					<PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+						<PACKAGE-PATH xsi:type="string">ReferencingEpisodeExample\MasterAnalysis.pkg</PACKAGE-PATH>
+					</PACKAGE-REF>
+				</COMPONENT>
+				<COMPONENT format-rev="5" xsi:type="packageTest">
+					<NAME xsi:type="string">AnalysisEngine</NAME>
+					<ENABLED xsi:type="boolean">False</ENABLED>
+					<REPORTING xsi:type="boolean">True</REPORTING>
+					<ID xsi:type="string">2773b5557e0611e98e32fc7774225dae</ID>
+					<COMPONENTS/>
+					<PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+						<PACKAGE-PATH xsi:type="string">ReferencingEpisodeExample\AnalysisEngine.pkg</PACKAGE-PATH>
+					</PACKAGE-REF>
+				</COMPONENT>
+				<COMPONENT format-rev="5" xsi:type="packageTest">
+					<NAME xsi:type="string">AnalysisVelocity</NAME>
+					<ENABLED xsi:type="boolean">False</ENABLED>
+					<REPORTING xsi:type="boolean">True</REPORTING>
+					<ID xsi:type="string">277607407e0611e98127fc7774225dae</ID>
+					<COMPONENTS/>
+					<PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+						<PACKAGE-PATH xsi:type="string">ReferencingEpisodeExample\AnalysisVelocity.pkg</PACKAGE-PATH>
+					</PACKAGE-REF>
+				</COMPONENT>
+			</COMPONENTS>
+		</COMPONENT>
+		<COMPONENT format-rev="5" xsi:type="packageTest">
+			<NAME xsi:type="string">CheckSignalInEnvelope</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<ID xsi:type="string">277607437e0611e985cffc7774225dae</ID>
+			<COMPONENTS/>
+			<PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+				<PACKAGE-PATH xsi:type="string">CheckSignalInEnvelope.pkg</PACKAGE-PATH>
+			</PACKAGE-REF>
+		</COMPONENT>
+		<COMPONENT format-rev="5" xsi:type="packageTest">
+			<NAME xsi:type="string">TestDrives</NAME>
+			<ENABLED xsi:type="boolean">True</ENABLED>
+			<REPORTING xsi:type="boolean">True</REPORTING>
+			<ID xsi:type="string">277607457e0611e9bfa9fc7774225dae</ID>
+			<COMPONENTS/>
+			<PACKAGE-REF format-rev="1" style="relative" xsi:type="packageRef">
+				<PACKAGE-PATH xsi:type="string">TestDrives.pkg</PACKAGE-PATH>
+			</PACKAGE-REF>
+		</COMPONENT>
+	</COMPONENTS>
+</PROJECT>

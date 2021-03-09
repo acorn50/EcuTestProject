@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2020.1.95258" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Type</NAME>
+				<VALUE xsi:type="string">MANUAL</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">CarSpeed</ID>
+			<XACCESS format-rev="1" xsi:type="xaTraceFileSignal">
+				<SIGNAL-NAME xsi:type="string">CarSpeed</SIGNAL-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">EngSpeed</ID>
+			<XACCESS format-rev="1" xsi:type="xaTraceFileSignal">
+				<SIGNAL-NAME xsi:type="string">EngSpeed</SIGNAL-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">Gear</ID>
+			<XACCESS format-rev="1" xsi:type="xaTraceFileSignal">
+				<SIGNAL-NAME xsi:type="string">Gear</SIGNAL-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TRACE-RECORDING format-rev="2" xsi:type="recordingManager">
+		<SIGNAL-GROUPS>
+			<ELEMENT format-rev="2" xsi:type="signalGroup">
+				<NAME xsi:type="string">TestDrive</NAME>
+				<DESCRIPTION xsi:type="string">...</DESCRIPTION>
+				<SIGNALS>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">EngSpeed</MAPPING-REF>
+					</ELEMENT>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">CarSpeed</MAPPING-REF>
+					</ELEMENT>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">Gear</MAPPING-REF>
+					</ELEMENT>
+				</SIGNALS>
+			</ELEMENT>
+		</SIGNAL-GROUPS>
+		<RECORDING-GROUP>
+			<ELEMENT format-rev="3" xsi:type="recordingGroup">
+				<NAME xsi:type="string">default 1</NAME>
+				<UUID xsi:type="string">f7a7f72e7aab11de819e001e37f37d50</UUID>
+				<RECORDINGS>
+					<ELEMENT format-rev="2" xsi:type="recordingInfo">
+						<RECORDING-TYPE xsi:type="string">MDF_VECTOR</RECORDING-TYPE>
+						<PATHS>
+							<PATH xsi:type="fileReference">
+								<PATH xsi:type="string">ExampleTraces\SpeedGearEng\testlauf.mdf</PATH>
+								<PATH-TYPE xsi:type="string">relTraces</PATH-TYPE>
+							</PATH>
+						</PATHS>
+						<RECORDING-NAME xsi:type="string">device</RECORDING-NAME>
+					</ELEMENT>
+				</RECORDINGS>
+				<SIGNAL-GROUP-REF>TestDrive</SIGNAL-GROUP-REF>
+			</ELEMENT>
+		</RECORDING-GROUP>
+		<SYNCHRONISATION-CONFIG xsi:type="syncConfig"/>
+	</TRACE-RECORDING>
+	<TRACE-ANALYSES format-rev="1" xsi:type="traceAnalyses">
+		<TRACE-ANALYSIS format-rev="3" uuid="d2915e95930711de8c04028037130300" xsi:type="traceAnalysis">
+			<NAME xsi:type="string">Traceanalyse 1</NAME>
+			<ANALYSISITEM format-rev="1" uuid="7d195e4f165511df9e420016ea5fe89c" xsi:type="episode">
+				<NAME xsi:type="string">Plot</NAME>
+				<ANALYSISITEM format-rev="2" poolRev="6" uuid="c875f896165511dfaf080016ea5fe89c" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">Individual subplots</NAME>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="Signal_0">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">CarSpeed</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_1">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">EngSpeed</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_10">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_11">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_12">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_13">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_14">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_15">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_16">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_17">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_18">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_19">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_2">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">Gear</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_20">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_3">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_4">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_5">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_6">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_7">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_8">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+						<PARAMETER dkey="Signal_9">
+							<DVALUE format-rev="1" xsi:type="signalParameter"/>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="connectActualSignalValuesLinearly">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="markActualSignalValues">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="plotOnlyActualSignalValues">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="plotScaleFactor">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="subPlots">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="boolean">True</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="xmax">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="xmin">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="ymax">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="ymin">
+								<DVALUE format-rev="1" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">10</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.5</MIN-DELTA>
+					</REPORT-CONFIG>
+					<PROTOTYPE-ID xsi:type="string">Display\PyPlotSignals</PROTOTYPE-ID>
+				</ANALYSISITEM>
+			</ANALYSISITEM>
+			<VIRTUAL-SIGNALS-MANAGER xsi:type="virtualSignalsManager">
+				<VIRTUAL-SIGNALS>
+					<VIRTUAL-SIGNAL uuid="dfb4c0407a1d11e0a99f0024d7351970" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">CarSpeed</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">CarSpeed</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">f7a7f72e7aab11de819e001e37f37d50</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="dfb4c0417a1d11e099fd0024d7351970" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">Gear</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">Gear</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">f7a7f72e7aab11de819e001e37f37d50</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="dfb4c0427a1d11e094490024d7351970" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">EngSpeed</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">EngSpeed</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">f7a7f72e7aab11de819e001e37f37d50</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+				</VIRTUAL-SIGNALS>
+			</VIRTUAL-SIGNALS-MANAGER>
+		</TRACE-ANALYSIS>
+	</TRACE-ANALYSES>
+</PACKAGE>

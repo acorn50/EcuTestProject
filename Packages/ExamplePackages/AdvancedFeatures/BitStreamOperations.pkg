@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="8.1.0.91368-BETA" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Type</NAME>
+				<VALUE xsi:type="string">MANUAL</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">IntValue</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">12</DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="2760216" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">BitStream creation</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="8198" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="BitStream">
+						<DATA xsi:type="integer">61931</DATA>
+						<BIT-LENGTH xsi:type="integer">16</BIT-LENGTH>
+					</VALUE>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760782" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">BitStream</NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">IntValue</NAME>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760287" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">BitStream</NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">FromBin</ATTR-NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="string">0101</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760243" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">BitStream</NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">FromUInt</ATTR-NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">128</VALUE>
+						</ARGUMENT>
+						<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">8</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760260" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">BitStream</NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">FromInt</ATTR-NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT xsi:type="unaryOpBaseExpression">
+							<NAME xsi:type="string">UNARY_NEGATIVE</NAME>
+							<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">1</VALUE>
+							</COMPONENT>
+						</ARGUMENT>
+						<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">8</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760285" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">BitStream</NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">FromFloat</ATTR-NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="float">0.1</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760294" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">BitStream</NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">FromDouble</ATTR-NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT xsi:type="unaryOpBaseExpression">
+							<NAME xsi:type="string">UNARY_NEGATIVE</NAME>
+							<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">1.3e-4</VALUE>
+							</COMPONENT>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2760296" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Conversion to string</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2760320" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">str</NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">11211263</DATA>
+								<BIT-LENGTH xsi:type="integer">32</BIT-LENGTH>
+							</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760328" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">11211263</DATA>
+								<BIT-LENGTH xsi:type="integer">32</BIT-LENGTH>
+							</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">Bin</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2760350" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Conversion to number</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2760394" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">2712343039</DATA>
+								<BIT-LENGTH xsi:type="integer">32</BIT-LENGTH>
+							</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">UInt</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760346" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">2712343039</DATA>
+								<BIT-LENGTH xsi:type="integer">32</BIT-LENGTH>
+							</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">Int</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760348" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">3247649587</DATA>
+								<BIT-LENGTH xsi:type="integer">32</BIT-LENGTH>
+							</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">Float</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760432" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">3247649587</DATA>
+								<BIT-LENGTH xsi:type="integer">64</BIT-LENGTH>
+							</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">Double</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2760595" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Conversion to ByteStream</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2760587" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<COMMENT xsi:type="string">Conversion to ByteStream using Motorola byte order.</COMMENT>
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">11211263</DATA>
+								<BIT-LENGTH xsi:type="integer">24</BIT-LENGTH>
+							</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">MBytes</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760679" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<COMMENT xsi:type="string">Conversion to ByteStream using Intel byte order.</COMMENT>
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">11211263</DATA>
+								<BIT-LENGTH xsi:type="integer">24</BIT-LENGTH>
+							</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">IBytes</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2760533" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Indexing and slicing</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2760756" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">len</NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT xsi:type="functionBaseExpression">
+							<COMPONENT xsi:type="attributeBaseExpression">
+								<COMPONENT xsi:type="varBaseExpression">
+									<NAME xsi:type="string">BitStream</NAME>
+								</COMPONENT>
+								<ATTR-NAME xsi:type="string">FromBin</ATTR-NAME>
+							</COMPONENT>
+							<ARGUMENTS>
+								<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">01000</VALUE>
+								</ARGUMENT>
+							</ARGUMENTS>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="builtNumericExpression">
+						<RELATION xsi:type="string">==</RELATION>
+						<VALUE format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">5</VALUE>
+						</VALUE>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760556" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_SUBSCR</NAME>
+					<FIRST-COMPONENT xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="attributeBaseExpression">
+							<COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">BitStream</NAME>
+							</COMPONENT>
+							<ATTR-NAME xsi:type="string">FromBin</ATTR-NAME>
+						</COMPONENT>
+						<ARGUMENTS>
+							<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">01000</VALUE>
+							</ARGUMENT>
+						</ARGUMENTS>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">3</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="builtNumericExpression">
+						<RELATION xsi:type="string">==</RELATION>
+						<VALUE format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">1</VALUE>
+						</VALUE>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760706" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="sliceBaseExpression">
+					<COMPONENT xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="attributeBaseExpression">
+							<COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">BitStream</NAME>
+							</COMPONENT>
+							<ATTR-NAME xsi:type="string">FromBin</ATTR-NAME>
+						</COMPONENT>
+						<ARGUMENTS>
+							<ARGUMENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">1010110101100</VALUE>
+							</ARGUMENT>
+						</ARGUMENTS>
+					</COMPONENT>
+					<START format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">4</VALUE>
+					</START>
+					<STOP format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">12</VALUE>
+					</STOP>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION format-rev="1" xsi:type="builtBitStreamExpression">
+						<SIZE-EXPECTATION xsi:type="builtNumericExpression">
+							<RELATION xsi:type="string">==</RELATION>
+							<VALUE format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">1</VALUE>
+							</VALUE>
+						</SIZE-EXPECTATION>
+						<MASK-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">255</DATA>
+								<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+							</VALUE>
+						</MASK-EXPRESSION>
+						<EXPECTATION-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">90</DATA>
+								<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+							</VALUE>
+						</EXPECTATION-EXPRESSION>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2760784" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Concatenation</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2760794" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_ADD</NAME>
+					<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="BitStream">
+							<DATA xsi:type="integer">510</DATA>
+							<BIT-LENGTH xsi:type="integer">16</BIT-LENGTH>
+						</VALUE>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="BitStream">
+							<DATA xsi:type="integer">10</DATA>
+							<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+						</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="manualBitStreamExpression">
+						<BASE-EXPRESSION xsi:type="compareOpBaseExpression">
+							<NAME xsi:type="string">==</NAME>
+							<FIRST-COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">value</NAME>
+							</FIRST-COMPONENT>
+							<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="BitStream">
+									<DATA xsi:type="integer">130570</DATA>
+									<BIT-LENGTH xsi:type="integer">24</BIT-LENGTH>
+								</VALUE>
+							</SECOND-COMPONENT>
+						</BASE-EXPRESSION>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2760796" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Inversion and twos complement</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2760811" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="unaryOpBaseExpression">
+					<NAME xsi:type="string">UNARY_INVERT</NAME>
+					<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="BitStream">
+							<DATA xsi:type="integer">240</DATA>
+							<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+						</VALUE>
+					</COMPONENT>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="manualBitStreamExpression">
+						<BASE-EXPRESSION xsi:type="compareOpBaseExpression">
+							<NAME xsi:type="string">==</NAME>
+							<FIRST-COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">value</NAME>
+							</FIRST-COMPONENT>
+							<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="BitStream">
+									<DATA xsi:type="integer">15</DATA>
+									<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+								</VALUE>
+							</SECOND-COMPONENT>
+						</BASE-EXPRESSION>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760818" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="BitStream">
+								<DATA xsi:type="integer">241</DATA>
+								<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+							</VALUE>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">GetTwosCompl</ATTR-NAME>
+					</COMPONENT>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="2760849" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Bitwise combination (AND, OR, XOR)</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CODE-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string"/>
+			</ABORT-CODE-EXPRESSION>
+			<TESTSTEP format-rev="3" id="2760939" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_AND</NAME>
+					<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="BitStream">
+							<DATA xsi:type="integer">240</DATA>
+							<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+						</VALUE>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="BitStream">
+							<DATA xsi:type="integer">15</DATA>
+							<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+						</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="manualBitStreamExpression">
+						<BASE-EXPRESSION xsi:type="compareOpBaseExpression">
+							<NAME xsi:type="string">==</NAME>
+							<FIRST-COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">value</NAME>
+							</FIRST-COMPONENT>
+							<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="BitStream">
+									<DATA xsi:type="integer">0</DATA>
+									<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+								</VALUE>
+							</SECOND-COMPONENT>
+						</BASE-EXPRESSION>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2760949" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_OR</NAME>
+					<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="BitStream">
+							<DATA xsi:type="integer">240</DATA>
+							<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+						</VALUE>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="BitStream">
+							<DATA xsi:type="integer">15</DATA>
+							<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+						</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="manualBitStreamExpression">
+						<BASE-EXPRESSION xsi:type="compareOpBaseExpression">
+							<NAME xsi:type="string">==</NAME>
+							<FIRST-COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">value</NAME>
+							</FIRST-COMPONENT>
+							<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="BitStream">
+									<DATA xsi:type="integer">255</DATA>
+									<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+								</VALUE>
+							</SECOND-COMPONENT>
+						</BASE-EXPRESSION>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2761005" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="binaryOpBaseExpression">
+					<NAME xsi:type="string">BINARY_XOR</NAME>
+					<FIRST-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="BitStream">
+							<DATA xsi:type="integer">241</DATA>
+							<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+						</VALUE>
+					</FIRST-COMPONENT>
+					<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="BitStream">
+							<DATA xsi:type="integer">15</DATA>
+							<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+						</VALUE>
+					</SECOND-COMPONENT>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="manualBitStreamExpression">
+						<BASE-EXPRESSION xsi:type="compareOpBaseExpression">
+							<NAME xsi:type="string">==</NAME>
+							<FIRST-COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">value</NAME>
+							</FIRST-COMPONENT>
+							<SECOND-COMPONENT format-rev="1" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="BitStream">
+									<DATA xsi:type="integer">254</DATA>
+									<BIT-LENGTH xsi:type="integer">8</BIT-LENGTH>
+								</VALUE>
+							</SECOND-COMPONENT>
+						</BASE-EXPRESSION>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>
