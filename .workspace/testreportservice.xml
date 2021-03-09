@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TESTREPORTSERVICE-SETTINGS format-rev="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TESTREPORTSERVICE xsi:type="testReportService">
+		<REMOTE-ENABLED xsi:type="boolean">True</REMOTE-ENABLED>
+		<REPORT-SETTINGS/>
+	</TESTREPORTSERVICE>
+</TESTREPORTSERVICE-SETTINGS>

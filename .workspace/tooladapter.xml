@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TOOL-ADAPTER-SETTINGS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TOOL-ADAPTER xsi:type="toolAdapter">
+		<ACTIVATE-DUMMY-ADAPTER xsi:type="boolean">True</ACTIVATE-DUMMY-ADAPTER>
+	</TOOL-ADAPTER>
+</TOOL-ADAPTER-SETTINGS>
